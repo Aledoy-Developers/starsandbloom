@@ -833,9 +833,37 @@
                 <p>Kindly fill in the details.</p>
               </div>
 
-            <input type="text" placeholder="Full Name">
-            <input type="email" placeholder="Email">
-            <input type="phone" placeholder="Phone">
+            <input type="text" name="name" placeholder="Full Name" class="formBox">
+            <input type="email" name="email" placeholder="Email" class="formBox">
+            <input type="phone" name="phone" placeholder="Phone" class="formBox">
+            <select name="courses" id="" class="formBox"> 
+              <option value="" selected disabled>Choose Leadership Courses</option>
+              <option value="Emotional Intelligence">Emotional Intelligence </option>
+              <option value="Leadership mindset"> Leadership Mindset  </option>
+              <option value="Communication workshop"> Communication Workshop </option>
+              <option value="Entrepreneur mindset">Entrepreneur Mindset </option>
+              <option value="Strategic thinking"> Strategic Thinking </option>
+              <option value="Self Leadership"> Self Leadership </option>
+              <option value="Time Management"> Time Management </option>
+              <option value="Stress Management & resilience"> Stress Management & resilience </option>
+              <option value="Self Accountability"> Self Accountability</option>
+              <option value="Team Spirit"> Team Spirit  </option>
+              <option value="Conflict Resolution"> Conflict Resolution</option>
+              <option value="Financial awareness"> Financial awareness </option>
+            </select>
+
+            <select name="date_selected" id="" class="formBox">
+              <option value="" selected disabled>Choose your preferred Date</option>
+              <option value="27th of May"> 27th of May	</option>
+              <option value="30th of May"> 30th of May	</option>
+              <option value="1st of June"> 1st of June	</option>
+              <option value=" 5th of June">  5th of June	</option>
+
+            </select>
+
+            <button class="btn btn-style mt-md-5 mt-4">
+              Submit
+            </button>
 
 
           </form>  

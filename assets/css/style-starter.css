@@ -149,7 +149,8 @@ dd {
 }
 
 .starsForm{
-  background-color: blue;
+  background-color:var(--bg-color);
+  color: var(--font-color);
   height: 800px;
   display: flex;
   justify-content: center;
@@ -157,17 +158,16 @@ dd {
 }
 
 .stars-form{
-  background-color: green;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   height: 700px;
   width: 90%;
+  margin-top: 10px;
 }
 
 .stars-text{
-  background-color: yellow;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -176,7 +176,8 @@ dd {
 }
 
 .sectionForm{
-  background-color: #007bff;
+  background-color: var(--bg-color);
+  color: var(--font-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -184,7 +185,32 @@ dd {
   gap: 20px;
   width: 65%;
   height: 600px;
+  border: 1px solid black;
+  border-radius: 20px;
 
+  h1{
+    margin-right: 50%;
+  }
+}
+
+input, textarea {
+    padding-left: 20px;
+}
+
+select {
+    padding-left: 20px;
+}
+
+option {
+    padding-left: 20px;
+}
+
+
+.formBox{
+  width: 55%;
+  height: 40px;
+  border-radius: 20px;
+  border: 1px solid black;
 }
 
 blockquote {
