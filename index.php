@@ -67,9 +67,19 @@
               <li class="nav-item">
                 <a class="nav-link" href="#service">Services</a>
               </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="#ourteam">Our Team</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="#openprogram">Open Programs</a>
+              </li>
+
               <li class="nav-item">
                 <a class="nav-link" href="#contact">Contact</a>
               </li>
+
               <!-- search button -->
               <div class="search-right ml-lg-3">
                 <form
@@ -456,7 +466,7 @@
     <!-- //logo brands section -->
 
     <!-- team section -->
-    <section class="w3l-team py-5">
+    <section class="w3l-team py-5" id="ourteam">
       <div class="container py-md-5 py-4">
         <div class="row align-items-center mb-5">
           <div class="col-md-6 section-heading">
@@ -913,6 +923,10 @@
               <li>
                 <a href="#service"
                   ><span class="fas fa-angle-right mr-2"></span>Services</a
+                >
+              </li>
+                <a href="#ourteam"
+                  ><span class="fas fa-angle-right mr-2"></span> Our Team</a
                 >
               </li>
               <li>
