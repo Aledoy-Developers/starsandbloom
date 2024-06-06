@@ -820,6 +820,28 @@
     <!--</div>-->
     <!-- //blog section -->
 
+    <!-- Form Section -->
+    <a href="#" id="openprogram"></a>
+    <section class="starsForm">
+        <div class="stars-form">
+
+          <form action="" class="sectionForm">
+            <h1>Open Program</h1>
+
+            <div class="stars-text">
+                <h2>Online Leadership Course</h2>
+                <p>Kindly fill in the details.</p>
+              </div>
+
+            <input type="text" placeholder="Full Name">
+            <input type="email" placeholder="Email">
+            <input type="phone" placeholder="Phone">
+
+
+          </form>  
+        </div>
+    </section>
+
     <!-- footer -->
     <a href="#" id="contact"></a>
     <footer class="w3l-footer-22 py-5">
