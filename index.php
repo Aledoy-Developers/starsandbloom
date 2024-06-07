@@ -825,13 +825,26 @@
     <section class="starsForm">
         <div class="stars-form">
 
-          <form action="" class="sectionForm">
-            <h1>Open Program</h1>
+          <form action="proc-form.php" method="post" class="sectionForms">
+            <h1 class="stars-h1">Open Program</h1>
 
             <div class="stars-text">
-                <h2>Online Leadership Course</h2>
-                <p>Kindly fill in the details.</p>
-              </div>
+              <h2>Online Leadership Course</h2>
+              <p>Kindly fill in the details.</p>
+            </div>
+
+            <?php
+
+              if(isset($error_msg)){
+                echo "<div class= 'star-error' >" . $error_msg ."</div>";
+              }
+
+              if (isset($result)){
+                echo"<div class= 'star-result'>". $success ."</div>";
+              }
+
+            ?>
+
 
             <input type="text" name="name" placeholder="Full Name" class="formBox">
             <input type="email" name="email" placeholder="Email" class="formBox">

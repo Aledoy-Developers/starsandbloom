@@ -175,22 +175,23 @@ dd {
   gap: 10px;
 }
 
-.sectionForm{
+.sectionForms{
   background-color: var(--bg-color);
   color: var(--font-color);
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  gap: 20px;
+  flex-direction: column;  
+  gap: 25px;
   width: 65%;
   height: 600px;
-  border: 1px solid black;
+  border: 1px solid var(--border-color-light);
   border-radius: 20px;
+}
 
-  h1{
-    margin-right: 50%;
-  }
+.stars-h1{
+  text-align: center ;
+  font-size: 23px;
 }
 
 input, textarea {
@@ -204,6 +205,23 @@ select {
 option {
     padding-left: 20px;
 }
+
+.star-error{
+  background-color: red;
+  color: white;
+  width: 50%;
+  text-align: center;
+  height: 25px;
+}
+
+.star-result{
+  background-color: green;
+  color: white;
+  width: 55%;
+  text-align: center;
+  height: 25px;
+}
+
 
 
 .formBox{
