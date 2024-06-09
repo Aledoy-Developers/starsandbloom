@@ -829,7 +829,7 @@
             <h1 class="stars-h1">Open Program</h1>
 
             <div class="stars-text">
-              <h2>Online Leadership Course</h2>
+              <h2 class="stars-h2">Online Leadership Course</h2>
               <p>Kindly fill in the details.</p>
             </div>
 
@@ -843,6 +843,10 @@
                 echo"<div class= 'star-result'>". $success ."</div>";
               }
 
+              if (isset($error)){
+                echo "<div class='star-error'>". $error ."</div>";
+              }
+
             ?>
 
 
@@ -851,6 +855,15 @@
             <input type="phone" name="phone" placeholder="Phone" class="formBox">
             <select name="courses" id="" class="formBox"> 
               <option value="" selected disabled>Choose Leadership Courses</option>
+              <?php
+
+                if ($courses)
+                {
+                  echo '<option selected value= "'.$courses.'">' . $courses . '</option>';
+                }
+
+              ?>
+
               <option value="Emotional Intelligence">Emotional Intelligence </option>
               <option value="Leadership mindset"> Leadership Mindset  </option>
               <option value="Communication workshop"> Communication Workshop </option>
@@ -867,6 +880,16 @@
 
             <select name="date_selected" id="" class="formBox">
               <option value="" selected disabled>Choose your preferred Date</option>
+
+              <?php
+              
+                if($date_selected)
+                {
+                  echo '<option selected value= "'.$date_selected.'">' . $date_selected . '</option>';
+                }
+              
+
+              ?>
               <option value="27th of May"> 27th of May	</option>
               <option value="30th of May"> 30th of May	</option>
               <option value="1st of June"> 1st of June	</option>

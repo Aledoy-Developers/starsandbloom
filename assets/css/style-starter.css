@@ -194,6 +194,10 @@ dd {
   font-size: 23px;
 }
 
+.stars-h2{
+  font-weight: 700;
+}
+
 input, textarea {
     padding-left: 20px;
 }
