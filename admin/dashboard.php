@@ -1,3 +1,8 @@
+<?php
+
+include("connect.php");
+
+?>
 <!doctype html>
 <html lang="en">
     <head>
@@ -212,13 +217,13 @@ Bootstrap 5 Courses Admin Template
 
                 <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
                     <div class="title-group mb-3">
-                        <h1 class="h2 mb-0">Wallet</h1>
+                        <h1 class="h2 mb-0">Participants</h1>
                     </div>
 
                     <div class="row my-4">
                         <div class="col-lg-12 col-12">
                             <div class="custom-block bg-white">
-                                <h5 class="mb-4">Account Activities</h5>
+                                <h5 class="mb-4">List of participants signed up for course</h5>
 
                                 <div class="table-responsive">
                                     <table class="account-table table">
@@ -226,235 +231,47 @@ Bootstrap 5 Courses Admin Template
                                             <tr>
                                                 <th scope="col">Date</th>
 
-                                                <th scope="col">Time</th>
+                                                <th scope="col">Fullname</th>
 
-                                                <th scope="col">Description</th>
+                                                <th scope="col">Email</th>
 
-                                                <th scope="col">Payment Type</th>
+                                                <th scope="col">Courses</th>
 
-                                                <th scope="col">Amount</th>
-
-                                                <th scope="col">Balance</th>
-
-                                                <th scope="col">Status</th>
+                                                <th scope="col">Action</th>
 
                                             </tr>
                                         </thead>
 
                                         <tbody>
+
+
+                                        <?php 
+                                            $query = "select * from participant order by id desc";
+                                            $result = mysqli_query($conn,$query);
+                                            $num = mysqli_num_rows($result);
+                                            for($i=0; $i<$num; $i++)
+                                            {
+                                                $row = mysqli_fetch_array($result);
+                                        ?>
+
                                             <tr>
-                                                <td scope="row">July 5, 2023</td>
+                                                <td scope="row"><?php echo $row['date']; ?></td>
 
-                                                <td scope="row">10:00 PM</td>
+                                                <td scope="row"><?php echo $row['fullname']; ?></td>
 
-                                                <td scope="row">Shopping</td>
+                                                <td scope="row"><?php echo $row['email']; ?></td>
 
-                                                <td scope="row">C2C Transfer</td>
+                                                <td scope="row"><?php echo $row['phone']; ?></td>
 
-                                                <td class="text-danger" scope="row">
-                                                    <span class="me-1">-</span>
-                                                    $100.00
-                                                </td>
-
-                                                <td scope="row">$5,500.00</td>
 
                                                 <td scope="row">
                                                     <span class="badge text-bg-danger">
-                                                        Pending
+                                                        Delete
                                                     </span>
                                                 </td>
                                             </tr>
-
-                                            <tr>
-                                                <td scope="row">July 2, 2023</td>
-
-                                                <td scope="row">10:42 AM</td>
-
-                                                <td scope="row">Food Delivery</td>
-
-                                                <td scope="row">Mobile Reload</td>
-
-                                                <td class="text-success" scope="row">
-                                                    <span class="me-1">+</span>
-                                                    $250
-                                                </td>
-
-                                                <td scope="row">$5,600.00</td>
-
-                                                <td scope="row">
-                                                    <span class="badge text-bg-success">
-                                                        Success
-                                                    </span>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td scope="row">June 28, 2023</td>
-
-                                                <td scope="row">8:20 PM</td>
-
-                                                <td scope="row">Billing</td>
-
-                                                <td scope="row">Goverment</td>
-
-                                                <td class="text-success" scope="row">
-                                                <span class="me-2">+</span>$50</td>
-
-                                                <td scope="row">$5,350.00</td>
-
-                                                <td scope="row">
-                                                    <span class="badge text-bg-success">
-                                                        Success
-                                                    </span>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td scope="row">June 24, 2023</td>
-
-                                                <td scope="row">10:48 PM</td>
-
-                                                <td scope="row">Shopee</td>
-
-                                                <td scope="row">QR Code</td>
-
-                                                <td class="text-danger" scope="row">
-                                                <span class="me-2">-</span>$380</td>
-
-                                                <td scope="row">$5,300.00</td>
-
-                                                <td scope="row">
-                                                    <span class="badge text-bg-dark">
-                                                        Cancelled
-                                                    </span>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td scope="row">June 12, 2023</td>
-
-                                                <td scope="row">12:30 AM</td>
-
-                                                <td scope="row">Food Delivery</td>
-
-                                                <td scope="row">Mobile Reload</td>
-
-                                                <td class="text-success" scope="row">
-                                                <span class="me-2">+</span>$250</td>
-
-                                                <td scope="row">$4,920.00</td>
-
-                                                <td scope="row">
-                                                    <span class="badge text-bg-success">
-                                                        Success
-                                                    </span>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td scope="row">May 31, 2023</td>
-
-                                                <td scope="row">2:40 PM</td>
-
-                                                <td scope="row">Food Delivery</td>
-
-                                                <td scope="row">Mobile Reload</td>
-
-                                                <td class="text-success" scope="row">
-                                                <span class="me-2">+</span>$50</td>
-
-                                                <td scope="row">$4,920.00</td>
-
-                                                <td scope="row">
-                                                    <span class="badge text-bg-success">
-                                                        Success
-                                                    </span>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td scope="row">May 22, 2023</td>
-
-                                                <td scope="row">8:50 AM</td>
-
-                                                <td scope="row">Food Delivery</td>
-
-                                                <td scope="row">Mobile Reload</td>
-
-                                                <td class="text-success" scope="row">
-                                                <span class="me-2">+</span>$50</td>
-
-                                                <td scope="row">$4,920.00</td>
-
-                                                <td scope="row">
-                                                    <span class="badge text-bg-success">
-                                                        Success
-                                                    </span>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td scope="row">May 20, 2023</td>
-
-                                                <td scope="row">6:45 PM</td>
-
-                                                <td scope="row">Food Delivery</td>
-
-                                                <td scope="row">Mobile Reload</td>
-
-                                                <td class="text-danger" scope="row">
-                                                <span class="me-2">-</span>$500</td>
-
-                                                <td scope="row">$4,920.00</td>
-
-                                                <td scope="row">
-                                                    <span class="badge text-bg-danger">
-                                                        Pending
-                                                    </span>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td scope="row">April 28, 2023</td>
-
-                                                <td scope="row">11:20 AM</td>
-
-                                                <td scope="row">Food Delivery</td>
-
-                                                <td scope="row">Mobile Reload</td>
-
-                                                <td class="text-success" scope="row">
-                                                <span class="me-2">+</span>$856</td>
-
-                                                <td scope="row">$4,920.00</td>
-
-                                                <td scope="row">
-                                                    <span class="badge text-bg-success">
-                                                        Success
-                                                    </span>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td scope="row">April 16, 2023</td>
-
-                                                <td scope="row">11:00 PM</td>
-
-                                                <td scope="row">Food Delivery</td>
-
-                                                <td scope="row">Mobile Reload</td>
-
-                                                <td class="text-success" scope="row">
-                                                <span class="me-2">+</span>$50</td>
-
-                                                <td scope="row">$4,920.00</td>
-
-                                                <td scope="row">
-                                                    <span class="badge text-bg-danger">
-                                                        Pending
-                                                    </span>
-                                                </td>
-                                            </tr>
+                                                <?php } ?>
+                                            
                                         </tbody>
                                     </table>
                                 </div>

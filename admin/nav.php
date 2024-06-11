@@ -29,12 +29,6 @@
                                 </a>
                             </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="help-center.php">
-                                    <i class="bi-question-circle me-2"></i>
-                                    Help Center
-                                </a>
-                            </li>
 
                             <li class="nav-item featured-box mt-lg-5 mt-4 mb-4">
                                 <img src="images/credit-card.png" class="img-fluid" alt="">
