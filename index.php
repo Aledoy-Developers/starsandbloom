@@ -29,13 +29,13 @@
       <div class="container">
         <nav class="navbar navbar-expand-lg stroke">
           <!-- <h1>
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <a class="navbar-brand d-flex align-items-center" href="index.php">
               <span class="lostyle-1">E</span>
               xecution
             </a>
           </h1> -->
           <!--* if logo is image enable this    -->
-          <a class="navbar-brand" href="#index.html" style="margin-left: 10%">
+          <a class="navbar-brand" href="#index.php" style="margin-left: 10%">
             <img
               src="assets/images/logo_star-removebg-preview.png"
               alt="Logo"
@@ -137,7 +137,7 @@
           <div class="container">
             <div class="main-content">
               <!-- if logo is image enable this   
-                    <a class="logo" href="index.html">
+                    <a class="logo" href="index.php">
                         <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
                     </a> -->
               <h4>Your Vision, Executed Strategically</h4>

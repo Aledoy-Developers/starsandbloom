@@ -29,7 +29,7 @@ Tooplate 2135 Mini Finance
 
 https://www.tooplate.com/view/2135-mini-finance
 
-Bootstrap 5 Dashboard Admin Template
+Bootstrap 5 Courses Admin Template
 
 -->
     </head>
@@ -37,7 +37,7 @@ Bootstrap 5 Dashboard Admin Template
     <body>
         <header class="navbar sticky-top flex-md-nowrap">
             <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.php">
                     <i class="bi-box"></i>
                     Mini Finance
                 </a>
@@ -179,23 +179,16 @@ Bootstrap 5 Dashboard Admin Template
                             </li>
 
                             <li>
-                                <a class="dropdown-item" href="profile.html">
+                                <a class="dropdown-item" href="profile.php">
                                     <i class="bi-person me-2"></i>
                                     Profile
                                 </a>
                             </li>
 
                             <li>
-                                <a class="dropdown-item" href="setting.html">
+                                <a class="dropdown-item" href="setting.php">
                                     <i class="bi-gear me-2"></i>
                                     Settings
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="dropdown-item" href="help-center.html">
-                                    <i class="bi-question-circle me-2"></i>
-                                    Help
                                 </a>
                             </li>
 
@@ -213,59 +206,9 @@ Bootstrap 5 Dashboard Admin Template
 
         <div class="container-fluid">
             <div class="row">
-                <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
-                    <div class="position-sticky py-4 px-3 sidebar-sticky">
-                        <ul class="nav flex-column h-100">
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="index.html">
-                                    <i class="bi-house-fill me-2"></i>
-                                    Overview
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link active" href="wallet.html">
-                                    <i class="bi-wallet me-2"></i>
-                                    My Wallet
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="profile.html">
-                                    <i class="bi-person me-2"></i>
-                                    Profile
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="setting.html">
-                                    <i class="bi-gear me-2"></i>
-                                    Settings
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="help-center.html">
-                                    <i class="bi-question-circle me-2"></i>
-                                    Help Center
-                                </a>
-                            </li>
-
-                            <li class="nav-item featured-box mt-lg-5 mt-4 mb-4">
-                                <img src="images/credit-card.png" class="img-fluid" alt="">
-
-                                <a class="btn custom-btn" href="#">Upgrade</a>
-                            </li>
-
-                            <li class="nav-item border-top mt-auto pt-2">
-                                <a class="nav-link" href="#">
-                                    <i class="bi-box-arrow-left me-2"></i>
-                                    Logout
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
+                <?php
+                    include("nav.php");
+                ?>
 
                 <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
                     <div class="title-group mb-3">
@@ -627,7 +570,7 @@ Bootstrap 5 Dashboard Admin Template
 
                                         <div>
                                             <p>
-                                                <a href="transation-detail.html">Daniel Jones</a>
+                                                <a href="transation-detail.php">Daniel Jones</a>
                                             </p>
 
                                             <small class="text-muted">C2C Transfer</small>
@@ -646,7 +589,7 @@ Bootstrap 5 Dashboard Admin Template
 
                                         <div>
                                             <p>
-                                                <a href="transation-detail.html">Public Bank</a>
+                                                <a href="transation-detail.php">Public Bank</a>
                                             </p>
 
                                             <small class="text-muted">Mobile Reload</small>
@@ -664,7 +607,7 @@ Bootstrap 5 Dashboard Admin Template
                                         <img src="images/profile/young-woman-with-round-glasses-yellow-sweater.jpg" class="profile-image img-fluid" alt="">
 
                                         <div>
-                                            <p><a href="transation-detail.html">Store</a></p>
+                                            <p><a href="transation-detail.php">Store</a></p>
 
                                             <small class="text-muted">Payment Received</small>
                                         </div>
