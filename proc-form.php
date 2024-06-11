@@ -12,12 +12,7 @@
         exit;
         }
         
-        
-    $conn = mysqli_connect("localhost", "starsandbloom", "valentine", "starsandbloom");
-        if (!$conn){
-            echo "cannot connect to the server";
-        }
-            
+
 
         $query = "insert into participant set fullname = '$name', email = '$email', phone = '$phone', courses='$courses', date= '$date_selected'";
         
