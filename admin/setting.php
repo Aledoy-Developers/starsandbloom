@@ -247,13 +247,31 @@ Bootstrap 5 Courses Admin Template
                                     
                                     }
 
+                                    .stars-success{
+                                        color: white;
+                                        background-color: green;
+                                        width: 100%;
+
+                                        text-align: center;
+                                        margin-bottom: 15px;
+                                    }
+
                                 </style>
 
 
                                     <?php
 
+                                        if(isset($pass_error)){
+                                            echo "<div class = 'stars-error'>". $pass_error . "</div>";
+                                        }
+
                                         if(isset($error_ms)){
                                             echo "<div class='stars-error'>". $error_ms . "</div>";
+                                        }
+
+                                        if(isset($up_success))
+                                        {
+                                            echo "<div class='stars-success'>". $up_success. "</div>";
                                         }
                                     
                                     

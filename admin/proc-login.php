@@ -21,7 +21,7 @@ $num_chk = mysqli_num_rows($result_chk);
 if ($num_chk > 0)
 {
     $_SESSION['valid_user'] = $username;
-    include("dashboard.php");
+    header("Location: dashboard.php");
     exit;
 }
 

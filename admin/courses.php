@@ -2,6 +2,8 @@
 
 session_start();
 
+include('connect.php');
+
 if(!isset($_SESSION['valid_user']))
 {
     $admin_error = "Your session has timed out, please log in again.";
@@ -254,12 +256,24 @@ Bootstrap 5 Courses Admin Template
                                         </thead>
 
                                         <tbody>
+
+                                            <?php
+                                                $query = "select * from courses order by courses asc";
+                                                $result = mysqli_query($conn,$query);
+                                                $num = mysqli_num_rows($result);
+                                                for($i=0; $i<$num; $i++)
+                                                {
+                                                    $row = mysqli_fetch_array($result);
+                                                }
+
+                                            ?>
+                                            
                                             <tr>
-                                                <td scope="row">July 5, 2023</td>
+                                                <td scope="row"><?php echo $row['date']; ?></td>
 
-                                                <td scope="row">10:00 PM</td>
+                                                <td scope="row"><?php echo $row ['courses']; ?></td>
 
-                                                <td scope="row">Shopping</td>
+                                                <td scope="row"><?php echo $row['description'];?></td>
 
                                                 <td scope="row">
                                                     <span class="badge text-bg-danger">
