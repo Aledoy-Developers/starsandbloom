@@ -1,6 +1,16 @@
 <?php
 
+session_start();
+
 include("connect.php");
+
+
+if(!isset($_SESSION['valid_user']))
+{
+    $admin_error = "Your session has timed out, please log in again.";
+    include("login.php");
+    exit;
+}
 
 ?>
 <!doctype html>
@@ -12,7 +22,7 @@ include("connect.php");
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Mini Finance - Wallet Page</title>
+        <title>Stars and Bloom - Admin Page</title>
 
         <!-- CSS FILES -->      
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,7 +54,7 @@ Bootstrap 5 Courses Admin Template
             <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
                 <a class="navbar-brand" href="dashboard.php">
                     <i class="bi-box"></i>
-                    Mini Finance
+                    Stars and Bloom
                 </a>
             </div>
 
@@ -310,136 +320,13 @@ Bootstrap 5 Courses Admin Template
                             </div>
                         </div>
 
-                        <div class="col-lg-7 col-12">
-                            <div class="custom-block custom-block-balance">
-                                <small>Your Balance</small>
-
-                                <h2 class="mt-2 mb-3">$254,800</h2>
-
-                                <div class="custom-block-numbers d-flex align-items-center">
-                                    <span>****</span>
-                                    <span>****</span>
-                                    <span>****</span>
-                                    <p>2560</p>
-                                </div>
-
-                                <div class="d-flex">
-                                    <div>
-                                        <small>Valid Date</small>
-                                        <p>12/2028</p>
-                                    </div>
-
-                                    <div class="ms-auto">
-                                        <small>Card Holder</small>
-                                        <p>Thomas</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="custom-block custom-block-bottom d-flex flex-wrap">
-                                <div class="custom-block-bottom-item">
-                                    <a href="#" class="d-flex flex-column">
-                                        <i class="custom-block-icon bi-wallet"></i>
-
-                                        <small>Top up</small>
-                                    </a>
-                                </div>
-
-                                <div class="custom-block-bottom-item">
-                                    <a href="#" class="d-flex flex-column">
-                                        <i class="custom-block-icon bi-upc-scan"></i>
-
-                                        <small>Scan & Pay</small>
-                                    </a>
-                                </div>
-
-                                <div class="custom-block-bottom-item">
-                                    <a href="#" class="d-flex flex-column">
-                                        <i class="custom-block-icon bi-send"></i>
-
-                                        <small>Send</small>
-                                    </a>
-                                </div>
-
-                                <div class="custom-block-bottom-item">
-                                    <a href="#" class="d-flex flex-column">
-                                        <i class="custom-block-icon bi-arrow-down"></i>
-
-                                        <small>Request</small>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-5 col-12">
-                            <div class="custom-block custom-block-transations">
-                                <h5 class="mb-4">Recent Transations</h5>
-
-                                <div class="d-flex flex-wrap align-items-center mb-4">
-                                    <div class="d-flex align-items-center">
-                                        <img src="images/profile/senior-man-white-sweater-eyeglasses.jpg" class="profile-image img-fluid" alt="">
-
-                                        <div>
-                                            <p>
-                                                <a href="transation-detail.php">Daniel Jones</a>
-                                            </p>
-
-                                            <small class="text-muted">C2C Transfer</small>
-                                        </div>
-                                    </div>
-
-                                    <div class="ms-auto">
-                                        <small>05/12/2023</small>
-                                        <strong class="d-block text-danger"><span class="me-1">-</span> $250</strong>
-                                    </div>
-                                </div>
-
-                                <div class="d-flex flex-wrap align-items-center mb-4">
-                                    <div class="d-flex align-items-center">
-                                        <img src="images/profile/young-beautiful-woman-pink-warm-sweater.jpg" class="profile-image img-fluid" alt="">
-
-                                        <div>
-                                            <p>
-                                                <a href="transation-detail.php">Public Bank</a>
-                                            </p>
-
-                                            <small class="text-muted">Mobile Reload</small>
-                                        </div>
-                                    </div>
-
-                                    <div class="ms-auto">
-                                        <small>22/8/2023</small>
-                                        <strong class="d-block text-success"><span class="me-1">+</span> $280</strong>
-                                    </div>
-                                </div>
-
-                                <div class="d-flex flex-wrap align-items-center">
-                                    <div class="d-flex align-items-center">
-                                        <img src="images/profile/young-woman-with-round-glasses-yellow-sweater.jpg" class="profile-image img-fluid" alt="">
-
-                                        <div>
-                                            <p><a href="transation-detail.php">Store</a></p>
-
-                                            <small class="text-muted">Payment Received</small>
-                                        </div>
-                                    </div>
-
-                                    <div class="ms-auto">
-                                        <small>22/8/2023</small>
-                                        <strong class="d-block text-success"><span class="me-1">+</span> $280</strong>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
 
                     <footer class="site-footer">
                         <div class="container">
                             <div class="row">
                                 
                                 <div class="col-lg-12 col-12">
-                                    <p class="copyright-text">Copyright © Mini Finance 2048 
+                                    <p class="copyright-text">Copyright © Valentine 2024
                                     - Design: <a rel="sponsored" href="https://www.tooplate.com" target="_blank">Tooplate</a></p>
                                 </div>
 

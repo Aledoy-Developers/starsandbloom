@@ -2,6 +2,9 @@
 
 session_start();
 
+include("connect.php");
+
+
 if(!isset($_SESSION['valid_user']))
 {
     $admin_error = "Your session has timed out, please log in again.";
@@ -10,7 +13,6 @@ if(!isset($_SESSION['valid_user']))
 }
 
 ?>
-
 <!doctype html>
 <html lang="en">
     <head>
@@ -20,7 +22,7 @@ if(!isset($_SESSION['valid_user']))
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Mini Finance - Help Center</title>
+        <title>Stars and Bloom - Admin Page</title>
 
         <!-- CSS FILES -->      
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,6 +34,8 @@ if(!isset($_SESSION['valid_user']))
         <link href="css/bootstrap.min.css" rel="stylesheet">
 
         <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+        <link href="css/apexcharts.css" rel="stylesheet">
 
         <link href="css/tooplate-mini-finance.css" rel="stylesheet">
 <!--
@@ -50,7 +54,7 @@ Bootstrap 5 Courses Admin Template
             <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
                 <a class="navbar-brand" href="dashboard.php">
                     <i class="bi-box"></i>
-                    Mini Finance
+                    Stars and Bloom
                 </a>
             </div>
 
@@ -203,7 +207,6 @@ Bootstrap 5 Courses Admin Template
                                 </a>
                             </li>
 
-
                             <li class="border-top mt-3 pt-2 mx-4">
                                 <a class="dropdown-item ms-0 me-0" href="#">
                                     <i class="bi-box-arrow-left me-2"></i>
@@ -224,92 +227,48 @@ Bootstrap 5 Courses Admin Template
 
                 <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
                     <div class="title-group mb-3">
-                        <h1 class="h2 mb-0">How can we help?</h1>
+                        <h1 class="h2 mb-0">Add Courses</h1>
                     </div>
 
-                    <div class="row my-4">
-                        <div class="col-lg-7 col-12">
-                            <div class="custom-block bg-white">
-                                <form class="custom-form search-form" action="#" method="post" role="form">
-                                    <div class="row">
-                                        <div class="col-lg-12 mb-2">
-                                            <h6>Search for the topics</h6>
-                                        </div>
+                    <div class="col-lg-12 col-12">
+                        <div class="custom-block bg-white">
+                        <h5 class="mb-4">Add the courses</h5>
 
-                                        <div class="col-lg-8 col-md-8 col-12">
-                                            <input class="form-control mb-lg-0 mb-md-0" name="search" type="text" placeholder="Search" aria-label="Search">
-                                        </div>
+                        <div>
 
-                                        <div class="col-lg-4 col-md-4 col-12">
-                                            <button type="submit" class="form-control">
-                                                Submit
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
+                            <form class="custom-form password-form" action="proc-courses.php" method="post" role="form">
 
-                            <div class="custom-block custom-block-faq">
-                                <h5 class="mb-4">Frequently Asked Questions</h5>
+                                <input type="text" placeholder="Course Name" class="form-control">
 
-                                <strong class="d-block mb-2">What is Mini Finance Template?</strong>
+                                <select name="date" id="" class="form-control">
 
-                                <p>Mini Finance Template includes total 6 HTML pages for your customizations. It is free of charge provided by Tooplate website.</p>
-                                
-                                <strong class="d-block mt-3 mb-2">What is Free HTML Template?</strong>
+                                    <option value="" selected disabled>Choose the Appointed Date</option>
+                                    <option value="27th of May"> 27th of May</option>
+                                    <option value="30th of May"> 30th of May</option>
+                                    <option value="1st of June"> 1st of June</option>
+                                    <option value="5th of June"> 5th of June</option>
+                                    <option value="6th of June"> 6th of June</option>
+                                    <option value="10th of June"> 10th of June</option>
 
-                                <p>Free HTML Template is a ready-made web page based on HTML CSS codes.</p>
+                                </select>
 
-                                <strong class="d-block mt-3 mb-2">What is the best code editor?</strong>
+                                <textarea name="description" id="" class="form-control" placeholder="Enter the Decription of the Course" maxlength="100" minlength="10"></textarea>
 
-                                <p>Popular code editors are Dreamweaver, Notepad++, Visual Studio Code, Rapid CSS, Sublime Text and Atom to edit HTML CSS JS codes and put in your own web contents.</p>
-
-                                 <strong class="d-block mt-3 mb-2">Are all templates free to download?</strong>
-
-                                 <p>Yes, all CSS templates are 100% free to download and use for your websites. You can also use them for learning HTML, CSS, and JavaScripts.</p>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-5 col-12">
-                            <div class="custom-block custom-block-contact">
-                                <h6 class="mb-4">Still can’t find what you looking for?</h6>
-
-                                <p>
-                                    <strong>Call us:</strong>
-                                    <a href="tel: 305-240-9671" class="ms-2">
-                                        (60) 
-                                        305-240-9671
-                                    </a>
-                                </p>
-
-                                <a href="#" class="btn custom-btn custom-btn-bg-white mt-3">
-                                    Chat with us
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <footer class="site-footer">
-                        <div class="container">
-                            <div class="row">
-                                
-                                <div class="col-lg-12 col-12">
-                                    <p class="copyright-text">Copyright © Mini Finance 2048 
-                                    - Design: <a rel="sponsored" href="https://www.tooplate.com" target="_blank">Tooplate</a></p>
+                                <div style="margin: 20px;">
+                                    <button type="button" class="btn btn-success">
+                                        <i class="fa fa-search" aria-hidden="true"></i> Add Courses
+                                    </button>
                                 </div>
 
-                            </div>
-                        </div>
-                    </footer>
-                </main>
+                            </form>
 
+                        </div>
+
+                    </div>
+
+                </main>
             </div>
         </div>
-
-        <!-- JAVASCRIPT FILES -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/custom.js"></script>
 
     </body>
 </html>

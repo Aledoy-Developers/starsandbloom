@@ -1,3 +1,17 @@
+<?php
+
+session_start();
+
+if(!isset($_SESSION['valid_user']))
+{
+    $admin_error = "Your session has timed out, please log in again.";
+    include("login.php");
+    exit;
+}
+
+?>
+
+
 <!doctype html>
 <html lang="en">
     <head>

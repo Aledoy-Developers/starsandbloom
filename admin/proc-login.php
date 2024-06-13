@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 include("connect.php");
 
 $username = $_POST["user"];
@@ -12,13 +14,20 @@ if(!$username || !$password)
     exit;
 }
 
-$query_chk = "select * from participant where fullname = '$username' ";
+$query_chk = "select * from login where username = '$username' and password = '$password'";
 $result_chk = mysqli_query($conn,$query_chk);
 $num_chk = mysqli_num_rows($result_chk);
 
 if ($num_chk > 0)
 {
+    $_SESSION['valid_user'] = $username;
     include("dashboard.php");
+    exit;
+}
+
+else{
+    $error = "Login invalid"; 
+    include("login.php");
     exit;
 }
 

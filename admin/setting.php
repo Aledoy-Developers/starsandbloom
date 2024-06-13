@@ -1,3 +1,17 @@
+<?php
+
+session_start();
+
+if(!isset($_SESSION['valid_user']))
+{
+    $admin_error = "Your session has timed out, please log in again.";
+    include("login.php");
+    exit;
+}
+
+?>
+
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -217,53 +231,42 @@ Bootstrap 5 Courses Admin Template
                         <div class="col-lg-7 col-12">
                             <div class="custom-block bg-white">
                                 <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="true">Profile</button>
-                                    </li>
 
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link" id="password-tab" data-bs-toggle="tab" data-bs-target="#password-tab-pane" type="button" role="tab" aria-controls="password-tab-pane" aria-selected="false">Change Password</button>
                                     </li>
 
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="notification-tab" data-bs-toggle="tab" data-bs-target="#notification-tab-pane" type="button" role="tab" aria-controls="notification-tab-pane" aria-selected="false">Notification</button>
-                                    </li>
                                 </ul>
 
-                                <div class="tab-content" id="myTabContent">
-                                    <div class="tab-pane fade show active" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-                                        <h6 class="mb-4">User Profile</h6>
+                                <style>
+                                    .stars-error{
+                                        color: red;
+                                        width: 100%;
+                                        text-align: center;
+                                        margin-bottom: 15px;
+                                    
+                                    }
 
-                                        <form class="custom-form profile-form" action="#" method="post" role="form">
-                                            <input class="form-control" type="text" name="profile-name" id="profile-name" placeholder="John Doe">
+                                </style>
 
-                                            <input class="form-control" type="email" name="profile-email" id="profile-email" placeholder="Johndoe@gmail.com">
 
-                                            <div class="input-group mb-1">
-                                                <img src="images/profile/senior-man-white-sweater-eyeglasses.jpg" class="profile-image img-fluid" alt="">
+                                    <?php
 
-                                                <input type="file" class="form-control" id="inputGroupFile02">
-                                            </div>
+                                        if(isset($error_ms)){
+                                            echo "<div class='stars-error'>". $error_ms . "</div>";
+                                        }
+                                    
+                                    
+                                    ?>
 
-                                            <div class="d-flex">
-                                                <button type="button" class="form-control me-3">
-                                                    Reset
-                                                </button>
-
-                                                <button type="submit" class="form-control ms-2">
-                                                    Update
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
 
                                     <div class="tab-pane fade" id="password-tab-pane" role="tabpanel" aria-labelledby="password-tab" tabindex="0">
                                         <h6 class="mb-4">Password</h6>
 
-                                        <form class="custom-form password-form" action="#" method="post" role="form">
+                                        <form class="custom-form password-form" action="proc-password.php" method="post" role="form">
                                             <input type="password" name="password" id="password" pattern="[0-9a-zA-Z]{4,10}" class="form-control" placeholder="Current Password" required="">
 
-                                            <input type="password" name="confirm_password" id="confirm_password" pattern="[0-9a-zA-Z]{4,10}" class="form-control" placeholder="New Password" required="">
+                                            <input type="password" name="new_password" id="confirm_password" pattern="[0-9a-zA-Z]{4,10}" class="form-control" placeholder="New Password" required="">
 
                                             <input type="password" name="confirm_password" id="confirm_password" pattern="[0-9a-zA-Z]{4,10}" class="form-control" placeholder="Confirm Password" required="">
 
@@ -278,56 +281,10 @@ Bootstrap 5 Courses Admin Template
                                             </div>
                                         </form>
                                     </div>
-
-                                    <div class="tab-pane fade" id="notification-tab-pane" role="tabpanel" aria-labelledby="notification-tab" tabindex="0">
-                                        <h6 class="mb-4">Notification</h6>
-
-                                        <form class="custom-form notification-form" action="#" method="post" role="form">
-
-                                            <div class="form-check form-switch d-flex mb-3 ps-0">
-                                                <label class="form-check-label" for="flexSwitchCheckCheckedOne">Account activity</label>
-
-                                                <input class="form-check-input ms-auto" type="checkbox" name="form-check-input" role="switch" id="flexSwitchCheckCheckedOne" checked>
-                                            </div>
-
-                                            <div class="form-check form-switch d-flex mb-3 ps-0">
-                                                <label class="form-check-label" for="flexSwitchCheckCheckedTwo">Payment updated</label>
-
-                                                <input class="form-check-input ms-auto" type="checkbox" name="form-check-input" role="switch" id="flexSwitchCheckCheckedTwo" checked>
-                                            </div>
-
-                                            <div class="d-flex mt-4">
-                                                <button type="button" class="form-control me-3">
-                                                    Reset
-                                                </button>
-
-                                                <button type="submit" class="form-control ms-2">
-                                                    Update Password
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-lg-5 col-12">
-                            <div class="custom-block custom-block-contact">
-                                <h6 class="mb-4">Still can’t find what you looking for?</h6>
-
-                                <p>
-                                    <strong>Call us:</strong>
-                                    <a href="tel: 305-240-9671" class="ms-2">
-                                        (60) 
-                                        305-240-9671
-                                    </a>
-                                </p>
-
-                                <a href="#" class="btn custom-btn custom-btn-bg-white mt-3">
-                                    Chat with us
-                                </a>
-                            </div>
-                        </div>
                     </div>
 
                     <footer class="site-footer">

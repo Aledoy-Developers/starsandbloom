@@ -1,3 +1,16 @@
+<?php
+
+session_start();
+
+if(!isset($_SESSION['valid_user']))
+{
+    $admin_error = "Your session has timed out, please log in again.";
+    include("login.php");
+    exit;
+}
+?>
+
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -214,8 +227,7 @@ Bootstrap 5 Courses Admin Template
                     <div class="title-group mb-3">
                         <h1 class="h2 mb-0">Courses</h1>
                     </div>
-
-                    <div class="row my-4">
+                    
                         <div class="col-lg-12 col-12">
                             <div class="custom-block bg-white">
                                 <h5 class="mb-4">List of Courses</h5>
@@ -232,17 +244,11 @@ Bootstrap 5 Courses Admin Template
                                             <tr>
                                                 <th scope="col">Date</th>
 
-                                                <th scope="col">Time</th>
+                                                <th scope="col">Courses</th>
 
                                                 <th scope="col">Description</th>
 
-                                                <th scope="col">Payment Type</th>
-
-                                                <th scope="col">Amount</th>
-
-                                                <th scope="col">Balance</th>
-
-                                                <th scope="col">Status</th>
+                                                <th scope="col">Action</th>
 
                                             </tr>
                                         </thead>
@@ -255,213 +261,14 @@ Bootstrap 5 Courses Admin Template
 
                                                 <td scope="row">Shopping</td>
 
-                                                <td scope="row">C2C Transfer</td>
-
-                                                <td class="text-danger" scope="row">
-                                                    <span class="me-1">-</span>
-                                                    $100.00
-                                                </td>
-
-                                                <td scope="row">$5,500.00</td>
-
                                                 <td scope="row">
                                                     <span class="badge text-bg-danger">
-                                                        Pending
+                                                        Delete
                                                     </span>
                                                 </td>
                                             </tr>
-
-                                            <tr>
-                                                <td scope="row">July 2, 2023</td>
-
-                                                <td scope="row">10:42 AM</td>
-
-                                                <td scope="row">Food Delivery</td>
-
-                                                <td scope="row">Mobile Reload</td>
-
-                                                <td class="text-success" scope="row">
-                                                    <span class="me-1">+</span>
-                                                    $250
-                                                </td>
-
-                                                <td scope="row">$5,600.00</td>
-
-                                                <td scope="row">
-                                                    <span class="badge text-bg-success">
-                                                        Success
-                                                    </span>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td scope="row">June 28, 2023</td>
-
-                                                <td scope="row">8:20 PM</td>
-
-                                                <td scope="row">Billing</td>
-
-                                                <td scope="row">Goverment</td>
-
-                                                <td class="text-success" scope="row">
-                                                <span class="me-2">+</span>$50</td>
-
-                                                <td scope="row">$5,350.00</td>
-
-                                                <td scope="row">
-                                                    <span class="badge text-bg-success">
-                                                        Success
-                                                    </span>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td scope="row">June 24, 2023</td>
-
-                                                <td scope="row">10:48 PM</td>
-
-                                                <td scope="row">Shopee</td>
-
-                                                <td scope="row">QR Code</td>
-
-                                                <td class="text-danger" scope="row">
-                                                <span class="me-2">-</span>$380</td>
-
-                                                <td scope="row">$5,300.00</td>
-
-                                                <td scope="row">
-                                                    <span class="badge text-bg-dark">
-                                                        Cancelled
-                                                    </span>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td scope="row">June 12, 2023</td>
-
-                                                <td scope="row">12:30 AM</td>
-
-                                                <td scope="row">Food Delivery</td>
-
-                                                <td scope="row">Mobile Reload</td>
-
-                                                <td class="text-success" scope="row">
-                                                <span class="me-2">+</span>$250</td>
-
-                                                <td scope="row">$4,920.00</td>
-
-                                                <td scope="row">
-                                                    <span class="badge text-bg-success">
-                                                        Success
-                                                    </span>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td scope="row">May 31, 2023</td>
-
-                                                <td scope="row">2:40 PM</td>
-
-                                                <td scope="row">Food Delivery</td>
-
-                                                <td scope="row">Mobile Reload</td>
-
-                                                <td class="text-success" scope="row">
-                                                <span class="me-2">+</span>$50</td>
-
-                                                <td scope="row">$4,920.00</td>
-
-                                                <td scope="row">
-                                                    <span class="badge text-bg-success">
-                                                        Success
-                                                    </span>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td scope="row">May 22, 2023</td>
-
-                                                <td scope="row">8:50 AM</td>
-
-                                                <td scope="row">Food Delivery</td>
-
-                                                <td scope="row">Mobile Reload</td>
-
-                                                <td class="text-success" scope="row">
-                                                <span class="me-2">+</span>$50</td>
-
-                                                <td scope="row">$4,920.00</td>
-
-                                                <td scope="row">
-                                                    <span class="badge text-bg-success">
-                                                        Success
-                                                    </span>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td scope="row">May 20, 2023</td>
-
-                                                <td scope="row">6:45 PM</td>
-
-                                                <td scope="row">Food Delivery</td>
-
-                                                <td scope="row">Mobile Reload</td>
-
-                                                <td class="text-danger" scope="row">
-                                                <span class="me-2">-</span>$500</td>
-
-                                                <td scope="row">$4,920.00</td>
-
-                                                <td scope="row">
-                                                    <span class="badge text-bg-danger">
-                                                        Pending
-                                                    </span>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td scope="row">April 28, 2023</td>
-
-                                                <td scope="row">11:20 AM</td>
-
-                                                <td scope="row">Food Delivery</td>
-
-                                                <td scope="row">Mobile Reload</td>
-
-                                                <td class="text-success" scope="row">
-                                                <span class="me-2">+</span>$856</td>
-
-                                                <td scope="row">$4,920.00</td>
-
-                                                <td scope="row">
-                                                    <span class="badge text-bg-success">
-                                                        Success
-                                                    </span>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td scope="row">April 16, 2023</td>
-
-                                                <td scope="row">11:00 PM</td>
-
-                                                <td scope="row">Food Delivery</td>
-
-                                                <td scope="row">Mobile Reload</td>
-
-                                                <td class="text-success" scope="row">
-                                                <span class="me-2">+</span>$50</td>
-
-                                                <td scope="row">$4,920.00</td>
-
-                                                <td scope="row">
-                                                    <span class="badge text-bg-danger">
-                                                        Pending
-                                                    </span>
-                                                </td>
-                                            </tr>
-                                        </tbody>
+                                           
+                                           </tbody>
                                     </table>
                                 </div>
 
@@ -499,136 +306,12 @@ Bootstrap 5 Courses Admin Template
                             </div>
                         </div>
 
-                        <div class="col-lg-7 col-12">
-                            <div class="custom-block custom-block-balance">
-                                <small>Your Balance</small>
-
-                                <h2 class="mt-2 mb-3">$254,800</h2>
-
-                                <div class="custom-block-numbers d-flex align-items-center">
-                                    <span>****</span>
-                                    <span>****</span>
-                                    <span>****</span>
-                                    <p>2560</p>
-                                </div>
-
-                                <div class="d-flex">
-                                    <div>
-                                        <small>Valid Date</small>
-                                        <p>12/2028</p>
-                                    </div>
-
-                                    <div class="ms-auto">
-                                        <small>Card Holder</small>
-                                        <p>Thomas</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="custom-block custom-block-bottom d-flex flex-wrap">
-                                <div class="custom-block-bottom-item">
-                                    <a href="#" class="d-flex flex-column">
-                                        <i class="custom-block-icon bi-wallet"></i>
-
-                                        <small>Top up</small>
-                                    </a>
-                                </div>
-
-                                <div class="custom-block-bottom-item">
-                                    <a href="#" class="d-flex flex-column">
-                                        <i class="custom-block-icon bi-upc-scan"></i>
-
-                                        <small>Scan & Pay</small>
-                                    </a>
-                                </div>
-
-                                <div class="custom-block-bottom-item">
-                                    <a href="#" class="d-flex flex-column">
-                                        <i class="custom-block-icon bi-send"></i>
-
-                                        <small>Send</small>
-                                    </a>
-                                </div>
-
-                                <div class="custom-block-bottom-item">
-                                    <a href="#" class="d-flex flex-column">
-                                        <i class="custom-block-icon bi-arrow-down"></i>
-
-                                        <small>Request</small>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-5 col-12">
-                            <div class="custom-block custom-block-transations">
-                                <h5 class="mb-4">Recent Transations</h5>
-
-                                <div class="d-flex flex-wrap align-items-center mb-4">
-                                    <div class="d-flex align-items-center">
-                                        <img src="images/profile/senior-man-white-sweater-eyeglasses.jpg" class="profile-image img-fluid" alt="">
-
-                                        <div>
-                                            <p>
-                                                <a href="transation-detail.php">Daniel Jones</a>
-                                            </p>
-
-                                            <small class="text-muted">C2C Transfer</small>
-                                        </div>
-                                    </div>
-
-                                    <div class="ms-auto">
-                                        <small>05/12/2023</small>
-                                        <strong class="d-block text-danger"><span class="me-1">-</span> $250</strong>
-                                    </div>
-                                </div>
-
-                                <div class="d-flex flex-wrap align-items-center mb-4">
-                                    <div class="d-flex align-items-center">
-                                        <img src="images/profile/young-beautiful-woman-pink-warm-sweater.jpg" class="profile-image img-fluid" alt="">
-
-                                        <div>
-                                            <p>
-                                                <a href="transation-detail.php">Public Bank</a>
-                                            </p>
-
-                                            <small class="text-muted">Mobile Reload</small>
-                                        </div>
-                                    </div>
-
-                                    <div class="ms-auto">
-                                        <small>22/8/2023</small>
-                                        <strong class="d-block text-success"><span class="me-1">+</span> $280</strong>
-                                    </div>
-                                </div>
-
-                                <div class="d-flex flex-wrap align-items-center">
-                                    <div class="d-flex align-items-center">
-                                        <img src="images/profile/young-woman-with-round-glasses-yellow-sweater.jpg" class="profile-image img-fluid" alt="">
-
-                                        <div>
-                                            <p><a href="transation-detail.php">Store</a></p>
-
-                                            <small class="text-muted">Payment Received</small>
-                                        </div>
-                                    </div>
-
-                                    <div class="ms-auto">
-                                        <small>22/8/2023</small>
-                                        <strong class="d-block text-success"><span class="me-1">+</span> $280</strong>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
                     <footer class="site-footer">
                         <div class="container">
                             <div class="row">
                                 
                                 <div class="col-lg-12 col-12">
-                                    <p class="copyright-text">Copyright © Mini Finance 2048 
+                                    <p class="copyright-text">Copyright © Valentine 2024
                                     - Design: <a rel="sponsored" href="https://www.tooplate.com" target="_blank">Tooplate</a></p>
                                 </div>
 

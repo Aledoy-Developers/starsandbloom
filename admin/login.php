@@ -21,6 +21,7 @@
         <link href="css/bootstrap-icons.css" rel="stylesheet">
 
         <link href="css/tooplate-mini-finance.css" rel="stylesheet">
+
 <!--
 
 Tooplate 2135 Mini Finance
@@ -54,9 +55,36 @@ Bootstrap 5 Dashboard Admin Template
                                     
                                 </ul>
 
+                                <style>
+                                    .stars-error{
+                                        color: red;
+                                        width: 100%;
+                                        text-align: center;
+                                        margin-bottom: 15px;
+                                    
+                                    }
+
+                                </style>
+
+                                <?php
+
+                                    if(isset($error_msg)){
+                                        echo "<div class='stars-error'>". $error_msg . "</div>";
+                                    }
+
+                                    if(isset($error)){
+                                        echo "<div class='stars-error'>". $error . "</div";
+                                    }
+
+                                    if(isset($admin_error)){
+                                        echo "<div class= 'stars-error'>". $admin_error. "</div>";
+                                    }
+                                ?>
+
                                 <div class="tab-content" id="myTabContent">
                                     <div class="tab-pane fade show active" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
                                         <form class="custom-form profile-form" action="proc-login.php" method="post" role="form">
+
                                             <input class="form-control" type="text" name="user" id="profile-name" placeholder="Username">
 
                                             <input class="form-control" type="password" name="pass" id="profile-email" placeholder="Password">
