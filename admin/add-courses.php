@@ -238,7 +238,7 @@ Bootstrap 5 Courses Admin Template
 
                             <form class="custom-form password-form" action="proc-courses.php" method="post" role="form">
 
-                                <input type="text" placeholder="Course Name" class="form-control">
+                                <input type="text" placeholder="Course Name" class="form-control" name="courses">
 
                                 <select name="date" id="" class="form-control">
 
