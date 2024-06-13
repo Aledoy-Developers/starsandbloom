@@ -234,6 +234,21 @@ Bootstrap 5 Courses Admin Template
                         <div class="custom-block bg-white">
                         <h5 class="mb-4">Add the courses</h5>
 
+                        <style>
+                            .course-error{
+                                color: red;
+                                width: 100%;
+                                text-align: center;
+                                margin-bottom: 15px;
+                            }
+                        </style>
+
+                        <?php
+                            if(isset($course_error)){
+                                echo "<div class ='course-error'>". $course_error. "</div>";
+                            }
+                        ?>
+
                         <div>
 
                             <form class="custom-form password-form" action="proc-courses.php" method="post" role="form">
