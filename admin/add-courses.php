@@ -247,6 +247,11 @@ Bootstrap 5 Courses Admin Template
                             if(isset($course_error)){
                                 echo "<div class ='course-error'>". $course_error. "</div>";
                             }
+
+                            if (isset($error_msg))
+                            {
+                                echo "<div class = 'course-error'>". $error_msg. "</div>";
+                            }
                         ?>
 
                         <div>

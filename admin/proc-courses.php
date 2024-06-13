@@ -22,3 +22,19 @@ if ($result_chk) {
     include('courses.php');
     exit;
 }
+
+else{
+    echo "Service temporarily unavailable";
+}
+
+$query = "select * from courses where courses = '$courses'"; 
+$result = mysqli_query($conn,$query);
+$num = mysqli_num_rows($result);
+
+if ($num >0)
+{
+    $error_msg = "Course has already been registered";
+    include('add-courses.php');
+    exit;
+
+}

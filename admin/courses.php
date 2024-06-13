@@ -264,24 +264,25 @@ Bootstrap 5 Courses Admin Template
                                                 for($i=0; $i<$num; $i++)
                                                 {
                                                     $row = mysqli_fetch_array($result);
-                                                }
+                                                
 
                                             ?>
                                             
                                             <tr>
-                                                <td scope="row"><?php echo $row['date']; ?></td>
+                                                <td scope="row"><?php echo $row['availabe_date']; ?></td>
 
                                                 <td scope="row"><?php echo $row ['courses']; ?></td>
 
                                                 <td scope="row"><?php echo $row['description'];?></td>
 
                                                 <td scope="row">
-                                                    <span class="badge text-bg-danger">
+                                                    <a href="delete-courses.php?id=<?php echo $row['id'];?> &courses=<?php echo $row['courses'];?>" onclick="return confirm('Are you sure you want to delete <?php echo $row['courses'];?>?');"><span class="badge text-bg-danger">
                                                         Delete
                                                     </span>
+                                                    </a>
                                                 </td>
                                             </tr>
-                                           
+                                                 <?php } ?>
                                            </tbody>
                                     </table>
                                 </div>
