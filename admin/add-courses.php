@@ -255,22 +255,14 @@ Bootstrap 5 Courses Admin Template
 
                                 <input type="text" placeholder="Course Name" class="form-control" name="courses">
 
-                                <select name="date" id="" class="form-control">
-
-                                    <option value="" selected disabled>Choose the Appointed Date</option>
-                                    <option value="27th of May"> 27th of May</option>
-                                    <option value="30th of May"> 30th of May</option>
-                                    <option value="1st of June"> 1st of June</option>
-                                    <option value="5th of June"> 5th of June</option>
-                                    <option value="6th of June"> 6th of June</option>
-                                    <option value="10th of June"> 10th of June</option>
-
-                                </select>
 
                                 <textarea name="description" id="" class="form-control" placeholder="Enter the Decription of the Course" maxlength="100" minlength="10"></textarea>
 
+
+                                <textarea name="date" id="" class="form-control" placeholder="Seperate each date with a comma" style="height: 100px;"></textarea>
+
                                 <div style="margin: 20px;">
-                                    <button type="button" class="btn btn-success">
+                                    <button type="submit" class="btn btn-success">
                                         <i class="fa fa-search" aria-hidden="true"></i> Add Courses
                                     </button>
                                 </div>

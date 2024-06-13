@@ -1,4 +1,9 @@
 
+<?php
+
+include("admin/connect.php");
+
+?>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -853,7 +858,7 @@
             <input type="text" name="name" placeholder="Full Name" class="formBox">
             <input type="email" name="email" placeholder="Email" class="formBox">
             <input type="phone" name="phone" placeholder="Phone" class="formBox">
-            <select name="courses" id="" class="formBox"> 
+            <select name="courses" id="l_courses" class="formBox"> 
               <option value="" selected disabled>Choose Leadership Courses</option>
               <?php
 
@@ -863,19 +868,17 @@
                 }
 
               ?>
+   <?php 
+                    $query = "select * from courses order by courses asc";
+                    $result = mysqli_query($conn,$query);
+                    $num = mysqli_num_rows($result);
+                    for($i=0; $i<$num; $i++)
+                    {
+                        $row = mysqli_fetch_array($result);
+                ?>
 
-              <option value="Emotional Intelligence">Emotional Intelligence </option>
-              <option value="Leadership mindset"> Leadership Mindset  </option>
-              <option value="Communication workshop"> Communication Workshop </option>
-              <option value="Entrepreneur mindset">Entrepreneur Mindset </option>
-              <option value="Strategic thinking"> Strategic Thinking </option>
-              <option value="Self Leadership"> Self Leadership </option>
-              <option value="Time Management"> Time Management </option>
-              <option value="Stress Management & resilience"> Stress Management & resilience </option>
-              <option value="Self Accountability"> Self Accountability</option>
-              <option value="Team Spirit"> Team Spirit  </option>
-              <option value="Conflict Resolution"> Conflict Resolution</option>
-              <option value="Financial awareness"> Financial awareness </option>
+              <option value="<?php echo $row['courses']; ?>"><?php echo $row['courses']; ?></option>
+             <?php } ?>
             </select>
 
             <select name="date_selected" id="" class="formBox">
@@ -890,11 +893,8 @@
               
 
               ?>
-              <option value="27th of May"> 27th of May	</option>
-              <option value="30th of May"> 30th of May	</option>
-              <option value="1st of June"> 1st of June	</option>
-              <option value=" 5th of June">  5th of June	</option>
-
+              
+                  <span id="list_dates"></span>
             </select>
 
             <button class="btn btn-style mt-md-5 mt-4">
@@ -1310,6 +1310,24 @@
 
     <!--bootstrap-->
     <script src="assets/js/bootstrap.min.js"></script>
+
+    <script>
+        $(function(){
+              $('#l_courses').change(function(){
+                 var course = $(this).val();
+        $.ajax({
+        url: './get_dates.php',
+        type: 'post',
+        data: { "course": "okay"},
+        success: function(response) { 
+          alert(response)
+        }
+
+              })
+        })
+
+      })
+      </script>
     <!-- //bootstrap-->
     <!-- //Js scripts -->
   </body>

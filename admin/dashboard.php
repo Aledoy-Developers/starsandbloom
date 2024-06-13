@@ -236,54 +236,55 @@ Bootstrap 5 Courses Admin Template
                                 <h5 class="mb-4">List of participants signed up for course</h5>
 
                                 <div class="table-responsive">
-                                    <table class="account-table table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Date</th>
+            <table class="account-table table">
+                <thead>
+                    <tr>
+                        <th scope="col">Date</th>
 
-                                                <th scope="col">Fullname</th>
+                        <th scope="col">Fullname</th>
 
-                                                <th scope="col">Email</th>
+                        <th scope="col">Email</th>
 
-                                                <th scope="col">Courses</th>
+                        <th scope="col">Courses</th>
 
-                                                <th scope="col">Action</th>
+                        <th scope="col">Action</th>
 
-                                            </tr>
-                                        </thead>
+                    </tr>
+                </thead>
 
-                                        <tbody>
-
-
-                                        <?php 
-                                            $query = "select * from participant order by id desc";
-                                            $result = mysqli_query($conn,$query);
-                                            $num = mysqli_num_rows($result);
-                                            for($i=0; $i<$num; $i++)
-                                            {
-                                                $row = mysqli_fetch_array($result);
-                                        ?>
-
-                                            <tr>
-                                                <td scope="row"><?php echo $row['date']; ?></td>
-
-                                                <td scope="row"><?php echo $row['fullname']; ?></td>
-
-                                                <td scope="row"><?php echo $row['email']; ?></td>
-
-                                                <td scope="row"><?php echo $row['phone']; ?></td>
+                        <tbody>
 
 
-                                                <td scope="row">
-                                                    <span class="badge text-bg-danger">
-                                                        Delete
-                                                    </span>
-                                                </td>
-                                            </tr>
-                                                <?php } ?>
-                                            
-                                        </tbody>
-                                    </table>
+                <?php 
+                    $query = "select * from participant order by id desc";
+                    $result = mysqli_query($conn,$query);
+                    $num = mysqli_num_rows($result);
+                    for($i=0; $i<$num; $i++)
+                    {
+                        $row = mysqli_fetch_array($result);
+                ?>
+
+                    <tr>
+                        <td scope="row"><?php echo $row['date']; ?></td>
+
+                        <td scope="row"><?php echo $row['fullname']; ?></td>
+
+                        <td scope="row"><?php echo $row['email']; ?></td>
+
+                        <td scope="row"><?php echo $row['phone']; ?></td>
+
+
+                        <td scope="row">
+                        <a href="delete-participant.php?id=<?php echo $row['id']; ?>&name=<?php echo $row['fullname']; ?>" onclick="return confirm('Are you sure you want to delete <?php echo $row['fullname']; ?>?');"> <span class="badge text-bg-danger">
+                                Delete
+                            </span>
+                            </a>
+                        </td>
+                    </tr>
+                        <?php } ?>
+                    
+                </tbody>
+            </table>
                                 </div>
 
                                 <nav aria-label="Page navigation example">

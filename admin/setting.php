@@ -260,7 +260,7 @@ Bootstrap 5 Courses Admin Template
                                     ?>
 
 
-                                    <div class="tab-pane fade" id="password-tab-pane" role="tabpanel" aria-labelledby="password-tab" tabindex="0">
+                                    <div>
                                         <h6 class="mb-4">Password</h6>
 
                                         <form class="custom-form password-form" action="proc-password.php" method="post" role="form">

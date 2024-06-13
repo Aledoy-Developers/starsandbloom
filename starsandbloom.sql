@@ -1,21 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 13, 2024 at 10:50 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Host: localhost:8889
+-- Generation Time: Jun 13, 2024 at 10:03 AM
+-- Server version: 5.7.39
+-- PHP Version: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `starsandbloom`
@@ -31,8 +25,16 @@ CREATE TABLE `courses` (
   `id` int(11) NOT NULL,
   `courses` varchar(100) DEFAULT NULL,
   `available_dates` varchar(100) DEFAULT NULL,
-  `date_created` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `courses`
+--
+
+INSERT INTO `courses` (`id`, `courses`, `available_dates`, `date_created`) VALUES
+(1, 'Self Leadership', '12-04-2024, 13-04-2024', '2024-06-13 09:30:24'),
+(2, 'Emotional Intelligence', '12-04-2024, 30-04-2024, 01-09-2024, 16-10-2024', '2024-06-13 09:30:24');
 
 -- --------------------------------------------------------
 
@@ -44,7 +46,7 @@ CREATE TABLE `login` (
   `id` int(11) NOT NULL,
   `username` varchar(20) DEFAULT NULL,
   `password` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `login`
@@ -66,21 +68,20 @@ CREATE TABLE `participant` (
   `phone` varchar(50) NOT NULL,
   `courses` varchar(100) NOT NULL,
   `date` varchar(50) NOT NULL,
-  `date_created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `participant`
 --
 
 INSERT INTO `participant` (`id`, `fullname`, `email`, `phone`, `courses`, `date`, `date_created`) VALUES
-(1, 'Anukam Valentine', 'anukamvalentine09@gmail.com', '9012878357', 'Strategic thinking', '0000-00-00', '2024-06-07 12:38:41'),
-(11, 'David', 'johndavid@gmail.com', '08012536674', 'Stress Management & resilience', '0000-00-00', '2024-06-07 14:54:37'),
 (12, 'Divine', 'divine@gmail.com', '09025333325', 'Stress Management & resilience', '0000-00-00', '2024-06-09 15:52:23'),
 (13, 'Anukam Valentine', 'anukamvalentine09@gmail.com', '9012878357', 'Strategic thinking', '0000-00-00', '2024-06-10 19:20:41'),
 (14, 'Divine', 'johndavid@gmail.com', '08012536674', 'Stress Management & resilience', '0000-00-00', '2024-06-11 09:47:07'),
 (15, 'Anukam Valentine', 'anukamvalentine09@gmail.com', '9012878357', 'Strategic thinking', '0000-00-00', '2024-06-11 17:01:45'),
-(16, 'Jessica', 'jessica@gmail.com', '08012536674', 'Entrepreneur mindset', '30th of May', '2024-06-12 20:26:57');
+(17, 'OLUMIDE ABIKOYE', 'luabikoye@gmail.com', '08161177834', 'Entrepreneur mindset', '30th of May', '2024-06-13 09:18:25'),
+(18, 'Francis Badejo', 'phrancisgilbert@yahoo.com', '07042629011', 'Self Leadership', '1st of June', '2024-06-13 09:18:42');
 
 --
 -- Indexes for dumped tables
@@ -90,7 +91,8 @@ INSERT INTO `participant` (`id`, `fullname`, `email`, `phone`, `courses`, `date`
 -- Indexes for table `courses`
 --
 ALTER TABLE `courses`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `courses` (`courses`);
 
 --
 -- Indexes for table `login`
@@ -112,7 +114,7 @@ ALTER TABLE `participant`
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `login`
@@ -124,9 +126,5 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `participant`
 --
 ALTER TABLE `participant`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
