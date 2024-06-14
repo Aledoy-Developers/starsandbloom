@@ -14,19 +14,6 @@ if(!$courses || !$date_selected || !$description)
     include("add-courses.php");
     exit;
 }
-
- $query_chk = "insert into courses (courses, available_dates) values ('$courses', '$date_selected') ";
- $result_chk = mysqli_query($conn,$query_chk);
-
-if ($result_chk) {
-    include('courses.php');
-    exit;
-}
-
-else{
-    echo "Service temporarily unavailable";
-}
-
 $query = "select * from courses where courses = '$courses'"; 
 $result = mysqli_query($conn,$query);
 $num = mysqli_num_rows($result);
@@ -38,3 +25,15 @@ if ($num >0)
     exit;
 
 }
+ $query_chk = "insert into courses (courses, available_dates, description) values ('$courses', '$date_selected', '$description') ";
+ $result_chk = mysqli_query($conn,$query_chk);
+
+if ($result_chk) {
+    include('courses.php');
+    exit;
+}
+
+else{
+    echo "Service temporarily unavailable";
+}
+

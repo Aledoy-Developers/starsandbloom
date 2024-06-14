@@ -269,7 +269,7 @@ Bootstrap 5 Courses Admin Template
                                             ?>
                                             
                                             <tr>
-                                                <td scope="row"><?php echo $row['availabe_date']; ?></td>
+                                                <td scope="row"><?php echo $row['available_dates']; ?></td>
 
                                                 <td scope="row"><?php echo $row ['courses']; ?></td>
 
