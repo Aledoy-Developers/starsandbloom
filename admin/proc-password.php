@@ -30,7 +30,7 @@ $row_chk = mysqli_fetch_array($result_chk);
 
 if($row_chk['password'] != $password)
 {
-    $error_ms = "Current Password Incorrect";
+    $error_ms = "Password Incorrect";
     include("setting.php");
     exit;
 }

@@ -240,6 +240,24 @@ Bootstrap 5 Courses Admin Template
                   </button></a>
                               </div>
 
+                              <style>
+                                .course-success{
+                                    color: green;
+                                    width: 100%;
+                                    text-align: center;
+                                    margin-bottom: 15px;
+                                }
+                              </style>
+
+                              <?php
+
+                                if(isset($course_success))
+                                {
+                                    echo "<div class= 'course-success'>". $course_success. "</div>";
+                                }
+
+                              ?>
+
                                 <div class="table-responsive">
                                     <table class="account-table table">
                                         <thead>

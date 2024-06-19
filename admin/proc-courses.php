@@ -29,6 +29,7 @@ if ($num >0)
  $result_chk = mysqli_query($conn,$query_chk);
 
 if ($result_chk) {
+    $course_success = "Course have been added successfully";
     include('courses.php');
     exit;
 }
