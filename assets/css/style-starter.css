@@ -226,10 +226,18 @@ option {
   height: 25px;
 }
 
+.starsdiv{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 80%;
+  gap: 20px;
+}
 
 
 .formBox{
-  width: 55%;
+  width: 90%;
   height: 40px;
   border-radius: 20px;
   border: 1px solid black;

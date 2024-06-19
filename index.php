@@ -869,7 +869,8 @@ include("admin/connect.php");
             ?>
 
 
-            <input type="text" name="name" placeholder="Full Name" class="formBox">
+    <div class="starsdiv">
+    <input type="text" name="name" placeholder="Full Name" class="formBox">
             <input type="email" name="email" placeholder="Email" class="formBox">
             <input type="phone" name="phone" placeholder="Phone" class="formBox">
             <select name="courses" id="l_courses" class="formBox"> 
@@ -897,6 +898,7 @@ include("admin/connect.php");
             
 
          <span id="list_dates"></span>
+    </div>
 
 
             <button class="btn btn-style mt-md-5 mt-4">
