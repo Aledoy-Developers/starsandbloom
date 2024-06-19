@@ -25,6 +25,20 @@ include("admin/connect.php");
     <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
     <!-- Template CSS Style link -->
     <link rel="stylesheet" href="assets/css/style-starter.css" />
+
+    <?php 
+    if($error_msg)
+    {
+          echo '<script>alert("Your registration was not successful")</script>';
+    }
+    
+    if($success)
+    {
+
+      echo '<script>alert("Thank you\n\nYour registration was successful")</script>';
+    }
+    
+    ?>
   </head>
 
   <body>
@@ -880,22 +894,10 @@ include("admin/connect.php");
               <option value="<?php echo $row['courses']; ?>"><?php echo $row['courses']; ?></option>
              <?php } ?>
             </select>
+            
 
-            <select name="date_selected" id="" class="formBox">
-              <option value="" selected disabled>Choose your preferred Date</option>
+         <span id="list_dates"></span>
 
-              <?php
-              
-                if($date_selected)
-                {
-                  echo '<option selected value= "'.$date_selected.'">' . $date_selected . '</option>';
-                }
-              
-
-              ?>
-              
-                  <span id="list_dates"></span>
-            </select>
 
             <button class="btn btn-style mt-md-5 mt-4">
               Submit
@@ -1310,20 +1312,21 @@ include("admin/connect.php");
 
     <!--bootstrap-->
     <script src="assets/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script>
         $(function(){
               $('#l_courses').change(function(){
                  var course = $(this).val();
-        $.ajax({
-        url: './get_dates.php',
-        type: 'post',
-        data: { "course": "okay"},
-        success: function(response) { 
-          alert(response)
-        }
-
-              })
+                 $.ajax({
+                    url: 'get_dates.php', // Replace with your API endpoint
+                    type: 'POST',
+                    dataType: 'text',
+                    data: {course : course},
+                    success: function(response) {
+                    $('#list_dates').html(response);
+                    }
+                });
         })
 
       })
