@@ -21,7 +21,7 @@ if(!isset($_SESSION['valid_user']))
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Mini Finance - Profile Page</title>
+        <title>Stars and Bloom Admin - Profile Page</title>
 
         <!-- CSS FILES -->      
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,7 +37,7 @@ if(!isset($_SESSION['valid_user']))
         <link href="css/tooplate-mini-finance.css" rel="stylesheet">
 <!--
 
-Tooplate 2135 Mini Finance
+Tooplate 2135 Stars and Bloom 
 
 https://www.tooplate.com/view/2135-mini-finance
 
@@ -51,7 +51,7 @@ Bootstrap 5 Courses Admin Template
             <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
                 <a class="navbar-brand" href="dashboard.php">
                     <i class="bi-box"></i>
-                    Mini Finance
+                    Stars and Bloom
                 </a>
             </div>
 
@@ -333,7 +333,7 @@ Bootstrap 5 Courses Admin Template
                             <div class="row">
                                 
                                 <div class="col-lg-12 col-12">
-                                    <p class="copyright-text">Copyright © Mini Finance 2048 
+                                    <p class="copyright-text">Copyright © Stars and Bloom  2048 
                                     - Design: <a rel="sponsored" href="https://www.tooplate.com" target="_blank">Tooplate</a></p>
                                 </div>
 

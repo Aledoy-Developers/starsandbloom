@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Mini Finance - Settings</title>
+        <title>Stars and Bloom  - Settings</title>
 
         <!-- CSS FILES -->      
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,7 +24,7 @@
 
 <!--
 
-Tooplate 2135 Mini Finance
+Tooplate 2135 Stars and Bloom 
 
 https://www.tooplate.com/view/2135-mini-finance
 

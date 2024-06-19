@@ -40,7 +40,7 @@ if(!isset($_SESSION['valid_user']))
         <link href="css/tooplate-mini-finance.css" rel="stylesheet">
 <!--
 
-Tooplate 2135 Mini Finance
+Tooplate 2135 Stars and Bloom 
 
 https://www.tooplate.com/view/2135-mini-finance
 
@@ -54,7 +54,7 @@ Bootstrap 5 Courses Admin Template
             <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
                 <a class="navbar-brand" href="index.php">
                     <i class="bi-box"></i>
-                    Mini Finance
+                    Stars and Bloom 
                 </a>
             </div>
 

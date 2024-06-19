@@ -3,7 +3,7 @@
 include("admin/connect.php");
 $course = $_POST['course'];
 
-echo '<select name="date_selected" id="" class="formBox" style="width:100%;"> 
+echo '<select name="date_selected" id="" class="formBox" style="width:150%; margin-left:-40px;"> 
               <option value="" selected disabled>Choose your preferred Date</option>';
 
 

@@ -49,7 +49,7 @@ $date = $row['available_dates'];
         <link href="css/tooplate-mini-finance.css" rel="stylesheet">
 <!--
 
-Tooplate 2135 Mini Finance
+Tooplate 2135 Stars and Bloom 
 
 https://www.tooplate.com/view/2135-mini-finance
 
