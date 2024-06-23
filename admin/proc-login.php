@@ -14,15 +14,26 @@ if(!$username || !$password)
     exit;
 }
 
-$query_chk = "select * from login where username = '$username' and password = '$password'";
+$query_chk = "select * from login where username = '$username'";
 $result_chk = mysqli_query($conn,$query_chk);
-$num_chk = mysqli_num_rows($result_chk);
 
-if ($num_chk > 0)
+
+if ($result_chk)
 {
-    $_SESSION['valid_user'] = $username;
-    header("Location: dashboard.php");
-    exit;
+    $row = mysqli_fetch_assoc($result_chk);
+    $stored_hashed_password = $row['password'];
+
+    if (password_verify($password, $stored_hashed_password)) {
+        $_SESSION['valid_user'] = $username;
+        header("Location: dashboard.php");
+        exit;
+
+    } else {
+       $error = "Login invalid";
+       include("login.php");
+       exit;
+    }
+   
 }
 
 else{

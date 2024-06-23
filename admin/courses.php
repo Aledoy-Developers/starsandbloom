@@ -6,7 +6,7 @@ include('connect.php');
 
 if(!isset($_SESSION['valid_user']))
 {
-    $admin_error = "Your session has timed out, please log in again.";
+    $admin_error = "Your session has timed out.";
     include("login.php");
     exit;
 }
@@ -281,6 +281,8 @@ Bootstrap 5 Courses Admin Template
 
                                                 <th scope="col">Description</th>
 
+                                                <th scope="col">Price</th>
+
                                                 <th scope="col">Edit</th>
 
                                                 <th scope="col">Action</th>
@@ -307,6 +309,8 @@ Bootstrap 5 Courses Admin Template
                                                 <td scope="row"><?php echo $row ['courses']; ?></td>
 
                                                 <td scope="row"><?php echo $row['description'];?></td>
+
+                                                <td scope="row"><?php echo $row['price'];?></td>
 
                                                 <td scope="row">
                                                     <a href="edit-courses.php?id=<?= $row['id']?>"><span class="badge text-bg-success">Edit </span></a>

@@ -270,8 +270,12 @@ Bootstrap 5 Courses Admin Template
 
                                 <textarea name="description" id="" class="form-control" placeholder="Enter the Decription of the Course" maxlength="100" minlength="10"> <?php echo $description;?> </textarea>
 
+                                <textarea name = "price" id="" class="form-control" placeholder="Enter the price"></textarea>
+
 
                                 <textarea name="date" id="" class="form-control" placeholder="Seperate each date with a comma" style="height: 100px;"> <?php echo $date;?> </textarea>
+
+
 
                                 <div style="margin: 20px;">
                                     <button type="submit" class="btn btn-success">

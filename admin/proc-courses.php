@@ -7,6 +7,7 @@ include("connect.php");
 $courses = $_POST["courses"];
 $date_selected = $_POST["date"];
 $description = $_POST["description"];
+$price = $_POST['price'];
 
 if(!$courses || !$date_selected || !$description)
 {
@@ -25,7 +26,7 @@ if ($num >0)
     exit;
 
 }
- $query_chk = "insert into courses (courses, available_dates, description) values ('$courses', '$date_selected', '$description') ";
+ $query_chk = "insert into courses (courses, available_dates, description, price) values ('$courses', '$date_selected', '$description', '$price') ";
  $result_chk = mysqli_query($conn,$query_chk);
 
 if ($result_chk) {

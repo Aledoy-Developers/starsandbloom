@@ -35,7 +35,7 @@ include("admin/connect.php");
     if($success)
     {
 
-      echo '<script>alert("Thank you\n\nYour registration was successful")</script>';
+      echo '<script>alert("Thank you '.$name.'\n\nYour registration was successful")</script>';
     }
     
     ?>
