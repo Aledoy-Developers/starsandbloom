@@ -2,6 +2,9 @@
 
 session_start();
 
+include("connect.php");
+
+
 if(!isset($_SESSION['valid_user']))
 {
     $admin_error = "Your session has timed out, please log in again.";
@@ -9,9 +12,16 @@ if(!isset($_SESSION['valid_user']))
     exit;
 }
 
+$id = $_GET['id'];
+$select = "SELECT * FROM courses WHERE id = '$id'";
+$result = mysqli_query($conn,$select);
+$row = mysqli_fetch_array($result);
+
+$course = $row['courses'];
+$description = $row['description'];
+$date = $row['available_dates'];
+
 ?>
-
-
 <!doctype html>
 <html lang="en">
     <head>
@@ -21,7 +31,7 @@ if(!isset($_SESSION['valid_user']))
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Stars and Bloom  - Settings</title>
+        <title>Stars and Bloom - Admin Page</title>
 
         <!-- CSS FILES -->      
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,6 +43,8 @@ if(!isset($_SESSION['valid_user']))
         <link href="css/bootstrap.min.css" rel="stylesheet">
 
         <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+        <link href="css/apexcharts.css" rel="stylesheet">
 
         <link href="css/tooplate-mini-finance.css" rel="stylesheet">
 <!--
@@ -51,7 +63,7 @@ Bootstrap 5 Courses Admin Template
             <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
                 <a class="navbar-brand" href="dashboard.php">
                     <i class="bi-box"></i>
-                    Stars and Bloom 
+                    Stars and Bloom
                 </a>
             </div>
 
@@ -218,114 +230,68 @@ Bootstrap 5 Courses Admin Template
 
         <div class="container-fluid">
             <div class="row">
-            <?php
+                <?php
                     include("nav.php");
                 ?>
 
                 <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
                     <div class="title-group mb-3">
-                        <h1 class="h2 mb-0">Settings</h1>
+                        <h1 class="h2 mb-0">Edit Courses</h1>
                     </div>
 
-                    <div class="row my-4">
-                        <div class="col-lg-7 col-12">
-                            <div class="custom-block bg-white">
-                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <div class="col-lg-12 col-12">
+                        <div class="custom-block bg-white">
+                        <h5 class="mb-4">Edit the courses</h5>
 
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="password-tab" data-bs-toggle="tab" data-bs-target="#password-tab-pane" type="button" role="tab" aria-controls="password-tab-pane" aria-selected="false">Change Password</button>
-                                    </li>
+                        <style>
+                            .course-error{
+                                color: red;
+                                width: 100%;
+                                text-align: center;
+                                margin-bottom: 15px;
+                            }
 
-                                </ul>
+                        </style>
 
-                                <style>
-                                    .stars-error{
-                                        color: red;
-                                        width: 100%;
-                                        text-align: center;
-                                        margin-bottom: 15px;
-                                    
-                                    }
+                        <?php
+                            if(isset($error_msg)){
+                                echo "<div class ='course-error'>". $error_msg. "</div>";
+                            }
 
-                                    .stars-success{
-                                        color: white;
-                                        background-color: green;
-                                        width: 100%;
+                        ?>
 
-                                        text-align: center;
-                                        margin-bottom: 15px;
-                                    }
+                        <div>
 
-                                </style>
+                            <form class="custom-form password-form" action="proc-edit.php" method="post" role="form">
+
+                                <input type="text" placeholder="Course Name" class="form-control" name="courses" value="<?php echo $course;?>">
+                                <input type="hidden" placeholder="Course Name" class="form-control" name="id" value="<?php echo $id;?>">
 
 
-                                    <?php
+                                <textarea name="description" id="" class="form-control" placeholder="Enter the Decription of the Course" maxlength="100" minlength="10"> <?php echo $description;?> </textarea>
 
-                                        if(isset($pass_error)){
-                                            echo "<div class = 'stars-error'>". $pass_error . "</div>";
-                                        }
-
-                                        if(isset($error_ms)){
-                                            echo "<div class='stars-error'>". $error_ms . "</div>";
-                                        }
-
-                                        if(isset($up_success))
-                                        {
-                                            echo "<div class='stars-success'>". $up_success. "</div>";
-                                        }
-                                    
-                                    
-                                    ?>
+                                <textarea name = "price" id="" class="form-control" placeholder="Enter the price"></textarea>
 
 
-                                    <div>
-                                        <h6 class="mb-4">Password</h6>
+                                <textarea name="date" id="" class="form-control" placeholder="Seperate each date with a comma" style="height: 100px;"> <?php echo $date;?> </textarea>
 
-                                        <form class="custom-form password-form" action="proc-password.php" method="post" role="form">
-                                            <input type="password" name="password" id="password" pattern="[0-9a-zA-Z]{4,10}" class="form-control" placeholder="Current Password" required="">
 
-                                            <input type="password" name="new_password" id="confirm_password" pattern="[0-9a-zA-Z]{4,10}" class="form-control" placeholder="New Password" required="">
 
-                                            <input type="password" name="confirm_password" id="confirm_password" pattern="[0-9a-zA-Z]{4,10}" class="form-control" placeholder="Confirm Password" required="">
-
-                                            <div class="d-flex">
-                                                <button type="button" class="form-control me-3">
-                                                    Reset
-                                                </button>
-
-                                                <button type="submit" class="form-control ms-2">
-                                                    Update Password
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
+                                <div style="margin: 20px;">
+                                    <button type="submit" class="btn btn-success">
+                                        <i class="fa fa-search" aria-hidden="true"></i> Submit
+                                    </button>
                                 </div>
-                            </div>
+
+                            </form>
+
                         </div>
 
                     </div>
 
-                    <footer class="site-footer">
-                        <div class="container">
-                            <div class="row">
-                                
-                                <div class="col-lg-12 col-12">
-                                    <p class="copyright-text">Copyright © Stars and Bloom  2048 
-                                    - Design: <a rel="sponsored" href="https://www.tooplate.com" target="_blank">Tooplate</a></p>
-                                </div>
-
-                            </div>
-                        </div>
-                    </footer>
                 </main>
-
             </div>
         </div>
-
-        <!-- JAVASCRIPT FILES -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/custom.js"></script>
 
     </body>
 </html>

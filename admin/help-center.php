@@ -20,7 +20,7 @@ if(!isset($_SESSION['valid_user']))
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Mini Finance - Help Center</title>
+        <title>Stars and Bloom  - Help Center</title>
 
         <!-- CSS FILES -->      
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,7 +36,7 @@ if(!isset($_SESSION['valid_user']))
         <link href="css/tooplate-mini-finance.css" rel="stylesheet">
 <!--
 
-Tooplate 2135 Mini Finance
+Tooplate 2135 Stars and Bloom 
 
 https://www.tooplate.com/view/2135-mini-finance
 
@@ -50,7 +50,7 @@ Bootstrap 5 Courses Admin Template
             <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
                 <a class="navbar-brand" href="dashboard.php">
                     <i class="bi-box"></i>
-                    Mini Finance
+                    Stars and Bloom 
                 </a>
             </div>
 
@@ -252,9 +252,9 @@ Bootstrap 5 Courses Admin Template
                             <div class="custom-block custom-block-faq">
                                 <h5 class="mb-4">Frequently Asked Questions</h5>
 
-                                <strong class="d-block mb-2">What is Mini Finance Template?</strong>
+                                <strong class="d-block mb-2">What is Stars and Bloom  Template?</strong>
 
-                                <p>Mini Finance Template includes total 6 HTML pages for your customizations. It is free of charge provided by Tooplate website.</p>
+                                <p>Stars and Bloom  Template includes total 6 HTML pages for your customizations. It is free of charge provided by Tooplate website.</p>
                                 
                                 <strong class="d-block mt-3 mb-2">What is Free HTML Template?</strong>
 
@@ -294,7 +294,7 @@ Bootstrap 5 Courses Admin Template
                             <div class="row">
                                 
                                 <div class="col-lg-12 col-12">
-                                    <p class="copyright-text">Copyright © Mini Finance 2048 
+                                    <p class="copyright-text">Copyright © Stars and Bloom  2048 
                                     - Design: <a rel="sponsored" href="https://www.tooplate.com" target="_blank">Tooplate</a></p>
                                 </div>
 

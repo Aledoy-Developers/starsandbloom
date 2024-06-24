@@ -6,7 +6,7 @@ include('connect.php');
 
 if(!isset($_SESSION['valid_user']))
 {
-    $admin_error = "Your session has timed out, please log in again.";
+    $admin_error = "Your session has timed out.";
     include("login.php");
     exit;
 }
@@ -40,7 +40,7 @@ if(!isset($_SESSION['valid_user']))
         <link href="css/tooplate-mini-finance.css" rel="stylesheet">
 <!--
 
-Tooplate 2135 Mini Finance
+Tooplate 2135 Stars and Bloom 
 
 https://www.tooplate.com/view/2135-mini-finance
 
@@ -54,7 +54,7 @@ Bootstrap 5 Courses Admin Template
             <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
                 <a class="navbar-brand" href="index.php">
                     <i class="bi-box"></i>
-                    Mini Finance
+                    Stars and Bloom 
                 </a>
             </div>
 
@@ -247,6 +247,14 @@ Bootstrap 5 Courses Admin Template
                                     text-align: center;
                                     margin-bottom: 15px;
                                 }
+
+                                .success{
+                                    color: green;
+                                    width: 100%;
+                                    text-align: center;
+                                    margin-bottom: 15px;
+                                }
+
                               </style>
 
                               <?php
@@ -254,6 +262,11 @@ Bootstrap 5 Courses Admin Template
                                 if(isset($course_success))
                                 {
                                     echo "<div class= 'course-success'>". $course_success. "</div>";
+                                }
+
+                                if (isset($success))
+                                {
+                                    echo "<div class = 'success'>". $success. "</div>";
                                 }
 
                               ?>
@@ -267,6 +280,10 @@ Bootstrap 5 Courses Admin Template
                                                 <th scope="col">Courses</th>
 
                                                 <th scope="col">Description</th>
+
+                                                <th scope="col">Price</th>
+
+                                                <th scope="col">Edit</th>
 
                                                 <th scope="col">Action</th>
 
@@ -292,6 +309,12 @@ Bootstrap 5 Courses Admin Template
                                                 <td scope="row"><?php echo $row ['courses']; ?></td>
 
                                                 <td scope="row"><?php echo $row['description'];?></td>
+
+                                                <td scope="row"><?php echo $row['price'];?></td>
+
+                                                <td scope="row">
+                                                    <a href="edit-courses.php?id=<?= $row['id']?>"><span class="badge text-bg-success">Edit </span></a>
+                                                </td>
 
                                                 <td scope="row">
                                                     <a href="delete-courses.php?id=<?php echo $row['id'];?> &courses=<?php echo $row['courses'];?>" onclick="return confirm('Are you sure you want to delete <?php echo $row['courses'];?>?');"><span class="badge text-bg-danger">
