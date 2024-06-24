@@ -719,7 +719,7 @@ include("admin/connect.php");
               </div>
             </div>
           </div>
-          <div class="item">
+          <div class="item">\
             <div class="testimonial-content">
               <div class="testimonial">
                 <blockquote>
