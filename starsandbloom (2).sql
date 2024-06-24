@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 24, 2024 at 02:03 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Host: localhost:8889
+-- Generation Time: Jun 24, 2024 at 01:01 PM
+-- Server version: 5.7.39
+-- PHP Version: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,26 +33,26 @@ CREATE TABLE `courses` (
   `description` varchar(200) DEFAULT NULL,
   `price` varchar(200) DEFAULT NULL,
   `available_dates` varchar(100) DEFAULT NULL,
-  `date_created` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `courses`
 --
 
 INSERT INTO `courses` (`id`, `courses`, `description`, `price`, `available_dates`, `date_created`) VALUES
-(33, 'Emotional Intelligence', 'Description....', NULL, '  12th of June ', '2024-06-19 21:29:18'),
-(34, 'Leadership Mindset', 'Description....', NULL, ' 14th of June ', '2024-06-19 21:31:49'),
-(35, 'Communication Workshop', '  Description....  ', '', '   17th of June, 20th of June, 23rd of June  ', '2024-06-19 21:32:21'),
-(36, 'Entrepreneur Mindset', 'Description....', NULL, ' 18th of June ', '2024-06-19 21:32:59'),
-(37, 'Strategic Thinking', 'Description....', NULL, ' 18th of June ', '2024-06-19 21:35:33'),
-(38, 'Self Leadership', 'Description....', NULL, ' 18th of June ', '2024-06-19 21:35:59'),
-(39, 'Time Management', ' Description.....', NULL, ' 20th of June ', '2024-06-19 21:36:28'),
-(40, 'Stress Management & Resilliance', 'Description.....', NULL, '21th of June', '2024-06-19 21:37:23'),
-(41, 'Self Accountability', 'Description....', NULL, '23rd of June', '2024-06-19 21:38:03'),
-(42, 'Team Spirit', 'Description...', NULL, '24th of June', '2024-06-19 21:38:40'),
-(43, 'Conflict Resolution', 'Description....', NULL, '25th of June', '2024-06-19 21:39:22'),
-(44, 'Financial Awareness', 'Description.....', NULL, '27th of June, 29th of June ', '2024-06-19 21:39:57');
+(33, 'Emotional Intelligence', 'Description....', '10000', '  12th of June ', '2024-06-19 21:29:18'),
+(34, 'Leadership Mindset', 'Description....', '10000', ' 14th of June ', '2024-06-19 21:31:49'),
+(35, 'Communication Workshop', '  Description....  ', '20000', '   17th of June, 20th of June, 23rd of June  ', '2024-06-19 21:32:21'),
+(36, 'Entrepreneur Mindset', 'Description....', '20000', ' 18th of June ', '2024-06-19 21:32:59'),
+(37, 'Strategic Thinking', 'Description....', '20000', ' 18th of June ', '2024-06-19 21:35:33'),
+(38, 'Self Leadership', 'Description....', '20000', ' 18th of June ', '2024-06-19 21:35:59'),
+(39, 'Time Management', ' Description.....', '20000', ' 20th of June ', '2024-06-19 21:36:28'),
+(40, 'Stress Management & Resilliance', 'Description.....', '20000', '21th of June', '2024-06-19 21:37:23'),
+(41, 'Self Accountability', 'Description....', '25000', '23rd of June', '2024-06-19 21:38:03'),
+(42, 'Team Spirit', 'Description...', '25000', '24th of June', '2024-06-19 21:38:40'),
+(43, 'Conflict Resolution', 'Description....', '25000', '25th of June', '2024-06-19 21:39:22'),
+(44, 'Financial Awareness', 'Description.....', '25000', '27th of June, 29th of June ', '2024-06-19 21:39:57');
 
 -- --------------------------------------------------------
 
@@ -64,7 +64,7 @@ CREATE TABLE `login` (
   `id` int(11) NOT NULL,
   `username` varchar(20) DEFAULT NULL,
   `password` varchar(200) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `login`
@@ -86,8 +86,8 @@ CREATE TABLE `participant` (
   `phone` varchar(50) NOT NULL,
   `courses` varchar(100) NOT NULL,
   `date` varchar(50) NOT NULL,
-  `date_created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `participant`
@@ -97,7 +97,12 @@ INSERT INTO `participant` (`id`, `fullname`, `email`, `phone`, `courses`, `date`
 (11, 'David', 'johndavid@gmail.com', '08012536674', 'Stress Management & resilience', '0000-00-00', '2024-06-07 14:54:37'),
 (14, 'Divine', 'johndavid@gmail.com', '08012536674', 'Stress Management & resilience', '0000-00-00', '2024-06-11 09:47:07'),
 (17, 'John David', 'davidjohn707@gmail.com', '08013467588', 'Communication Workshop', '20th of June', '2024-06-19 22:02:24'),
-(18, 'Anukam Valentine', 'anukamvalentine09@gmail.com', '9012878357', 'Stress Management & Resilliance', '21th of June', '2024-06-22 20:18:41');
+(18, 'Anukam Valentine', 'anukamvalentine09@gmail.com', '9012878357', 'Stress Management & Resilliance', '21th of June', '2024-06-22 20:18:41'),
+(21, 'OLUMIDE ABIKOYE', 'luabikoye@gmail.com', '07042629011', 'Self Leadership', '18th of June', '2024-06-24 12:55:45'),
+(22, 'asasdc', 'asdcas@iqueygfiqw.col', 'asdcasd', 'Entrepreneur Mindset', '18th of June', '2024-06-24 12:56:03'),
+(23, 'asasdc', 'asdcas@iqueygfiqw.col', 'asdcasd', 'Entrepreneur Mindset', '18th of June', '2024-06-24 12:57:23'),
+(24, 'OLUMIDE ABIKOYE', 'luabikoye@gmail.com', '07042629011', 'Self Leadership', '18th of June', '2024-06-24 13:00:01'),
+(25, 'OLUMIDE ABIKOYE', 'luabikoye@gmail.com', '07042629011', 'Self Leadership', '18th of June', '2024-06-24 13:00:42');
 
 --
 -- Indexes for dumped tables
@@ -142,7 +147,7 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `participant`
 --
 ALTER TABLE `participant`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
