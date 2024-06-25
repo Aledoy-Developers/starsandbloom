@@ -5,6 +5,7 @@ session_start();
 include("connect.php");
 
 
+
 if(!isset($_SESSION['valid_user']))
 {
     $admin_error = "Your session has timed out, please log in again.";
