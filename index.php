@@ -895,10 +895,10 @@ include("admin/connect.php");
                     for($i=0; $i<$num; $i++)
                     {
                         $row = mysqli_fetch_array($result);
+                    }
                 ?>
 
-              <option value="<?php echo $row['courses']; ?>"><?php echo $row['courses']; ?> - N<?php echo number_format($row['price']); ?></option>
-             <?php } ?>
+              <option value="<?php echo $row['courses']; ?>"><?php echo $row['courses']; ?> </option>
             </select>
             
 
