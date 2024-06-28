@@ -9,6 +9,8 @@ if(!isset($_SESSION['valid_user']))
     exit;
 }
 
+$username = $_SESSION['valid_user'];
+
 ?>
 
 
@@ -246,7 +248,7 @@ Bootstrap 5 Courses Admin Template
                                         <p class="d-flex flex-wrap mb-2">
                                             <strong>Name:</strong>
 
-                                            <span>Thomas Edison</span>
+                                            <span><?php echo $username;?></span>
                                         </p>
 
                                         <p class="d-flex flex-wrap mb-2">

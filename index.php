@@ -36,7 +36,7 @@ include("admin/connect.php");
     {
 
  ?>
- <script>alert("Thank you '.$name.'\n\nYour registration was successful. We will redirect you to our PayPal payment page to choose your course and make payment");
+ <script>alert("Thank you <?= $name?>\n\nYour registration was successful. We will redirect you to our PayPal payment page to choose your course and make payment");
 
       location.href="https://www.paypal.com/ncp/payment/V38SRH332HM68";
    </script>
@@ -895,12 +895,13 @@ include("admin/connect.php");
                     for($i=0; $i<$num; $i++)
                     {
                         $row = mysqli_fetch_array($result);
-                    }
+                    
+                    
                 ?>
 
               <option value="<?php echo $row['courses']; ?>"><?php echo $row['courses']; ?> </option>
+              <?php }?>
             </select>
-            
 
          <span id="list_dates"></span>
     </div>
