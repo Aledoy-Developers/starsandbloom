@@ -7,6 +7,7 @@ ini_set('display_errors', 0);
     //     if (!$conn){
     //         echo "cannot connect to the server";
     //     }
+        
     $conn = mysqli_connect("localhost", "starsandbloom", "valentine", "starsandbloom");
         if (!$conn){
             echo "cannot connect to the server";

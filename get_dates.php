@@ -15,7 +15,6 @@ $dates = explode(',',$row['available_dates']);
 
 for($i=0; $i<count($dates); $i++)
 {
-
     echo '<option>'.$dates[$i].'</option>';
 }
 

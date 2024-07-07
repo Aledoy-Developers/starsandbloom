@@ -1,6 +1,6 @@
 
 <?php
-
+session_start();
 include("admin/connect.php");
 
 ?>
@@ -32,13 +32,11 @@ include("admin/connect.php");
           echo '<script>alert("Your registration was not successful")</script>';
     }
     
-    if($success)
+    if($_GET['succ'])
     {
 
  ?>
- <script>alert("Thank you '.$name.'\n\nYour registration was successful. We will redirect you to our PayPal payment page to choose your course and make payment");
-
-      location.href="https://www.paypal.com/ncp/payment/V38SRH332HM68";
+ <script>alert("Thank you <?= $_SESSION['name']?>\n\nYour registration was successful. We will redirect you to our PayPal payment page to choose your course and make payment");
    </script>
    <?php
     }
@@ -897,7 +895,7 @@ include("admin/connect.php");
                         $row = mysqli_fetch_array($result);
                 ?>
 
-              <option value="<?php echo $row['courses']; ?>"><?php echo $row['courses']; ?> - N<?php echo number_format($row['price']); ?></option>
+              <option value="<?php echo $row['courses']; ?>"><?php echo $row['courses']; ?> - £<?php echo number_format($row['price']); ?></option>
              <?php } ?>
             </select>
             
