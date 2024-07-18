@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:8889
--- Generation Time: Jun 24, 2024 at 01:01 PM
--- Server version: 5.7.39
--- PHP Version: 7.4.33
+-- Host: localhost:3306
+-- Generation Time: Jul 07, 2024 at 04:25 PM
+-- Server version: 10.2.44-MariaDB
+-- PHP Version: 8.1.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `starsandbloom`
+-- Database: `starsandbloom_starsbloom`
 --
 
 -- --------------------------------------------------------
@@ -33,7 +33,7 @@ CREATE TABLE `courses` (
   `description` varchar(200) DEFAULT NULL,
   `price` varchar(200) DEFAULT NULL,
   `available_dates` varchar(100) DEFAULT NULL,
-  `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `date_created` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -52,7 +52,8 @@ INSERT INTO `courses` (`id`, `courses`, `description`, `price`, `available_dates
 (41, 'Self Accountability', 'Description....', '25000', '23rd of June', '2024-06-19 21:38:03'),
 (42, 'Team Spirit', 'Description...', '25000', '24th of June', '2024-06-19 21:38:40'),
 (43, 'Conflict Resolution', 'Description....', '25000', '25th of June', '2024-06-19 21:39:22'),
-(44, 'Financial Awareness', 'Description.....', '25000', '27th of June, 29th of June ', '2024-06-19 21:39:57');
+(44, 'Financial Awareness', 'Description.....', '25000', '27th of June, 29th of June ', '2024-06-19 21:39:57'),
+(47, 'AI', 'Artificial intel', '50', '1st July 2024', '2024-06-28 11:34:34');
 
 -- --------------------------------------------------------
 
@@ -86,7 +87,7 @@ CREATE TABLE `participant` (
   `phone` varchar(50) NOT NULL,
   `courses` varchar(100) NOT NULL,
   `date` varchar(50) NOT NULL,
-  `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `date_created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -102,7 +103,16 @@ INSERT INTO `participant` (`id`, `fullname`, `email`, `phone`, `courses`, `date`
 (22, 'asasdc', 'asdcas@iqueygfiqw.col', 'asdcasd', 'Entrepreneur Mindset', '18th of June', '2024-06-24 12:56:03'),
 (23, 'asasdc', 'asdcas@iqueygfiqw.col', 'asdcasd', 'Entrepreneur Mindset', '18th of June', '2024-06-24 12:57:23'),
 (24, 'OLUMIDE ABIKOYE', 'luabikoye@gmail.com', '07042629011', 'Self Leadership', '18th of June', '2024-06-24 13:00:01'),
-(25, 'OLUMIDE ABIKOYE', 'luabikoye@gmail.com', '07042629011', 'Self Leadership', '18th of June', '2024-06-24 13:00:42');
+(25, 'OLUMIDE ABIKOYE', 'luabikoye@gmail.com', '07042629011', 'Self Leadership', '18th of June', '2024-06-24 13:00:42'),
+(26, 'Anukam Valentine', 'johndavid@gmail.com', '08013467588', 'Emotional Intelligence', '12th of June', '2024-06-24 16:28:24'),
+(27, 'Pelumi ', 'pelumiajibola@yahoo.com', '+447776751354', 'Strategic Thinking', '18th of June', '2024-06-24 19:04:41'),
+(28, 'Pelumi ', 'pelumiajibola@yahoo.com', '+447776751354', 'Leadership Mindset', '14th of June', '2024-06-24 19:07:04'),
+(29, 'Anukam Valentine', 'anukamvalentine09@gmail.com', '9012878357', 'Leadership Mindset', '14th of June', '2024-06-25 12:59:05'),
+(30, 'Pelumi', 'pelumiajibola@yahoo.com', '0892736093', 'Time Management', '20th of June', '2024-06-28 11:32:46'),
+(31, 'Damipe', 'pelumi@yahoo.com', '38383838', 'AI', '1st July 2024', '2024-06-28 11:35:11'),
+(32, 'Francis Badejo', 'phrancisgilbert@yahoo.com', '07042629011', 'Self Accountability', '23rd of June', '2024-06-28 11:37:08'),
+(33, 'David', 'johndavid@gmail.com', '08013467588', 'Strategic Thinking', '18th of June', '2024-06-28 11:57:27'),
+(34, 'Anukam Valentine', 'johndavid@gmail.com', '09025333325', 'Stress Management & Resilliance', '21th of June', '2024-06-28 12:00:49');
 
 --
 -- Indexes for dumped tables
@@ -135,7 +145,7 @@ ALTER TABLE `participant`
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `login`
@@ -147,7 +157,7 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `participant`
 --
 ALTER TABLE `participant`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
